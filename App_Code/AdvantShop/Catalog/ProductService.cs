@@ -250,17 +250,17 @@ namespace AdvantShop.Catalog
         {
             List<Product> res = SQLDataAccess.ExecuteReadList<Product>("[Catalog].[sp_GetRelatedProducts]", CommandType.StoredProcedure,
                                                               reader => new Product
-                                                                            {
-                                                                                ProductId = SQLDataHelper.GetInt(reader, "ProductId"),
-                                                                                ArtNo = SQLDataHelper.GetString(reader, "ArtNo"),
-                                                                                Photo = SQLDataHelper.GetString(reader, "Photo"),
-                                                                                PhotoDesc = SQLDataHelper.GetString(reader, "PhotoDesc"),
-                                                                                Name = SQLDataHelper.GetString(reader, "Name"),
-                                                                                BriefDescription = SQLDataHelper.GetString(reader, "BriefDescription"),
-                                                                                Discount = SQLDataHelper.GetFloat(reader, "Discount"),
-                                                                                UrlPath = SQLDataHelper.GetString(reader, "UrlPath"),
-                                                                                AllowPreOrder = SQLDataHelper.GetBoolean(reader, "AllowPreOrder")
-                                                                            },
+                                                              {
+                                                                  ProductId = SQLDataHelper.GetInt(reader, "ProductId"),
+                                                                  ArtNo = SQLDataHelper.GetString(reader, "ArtNo"),
+                                                                  Photo = SQLDataHelper.GetString(reader, "Photo"),
+                                                                  PhotoDesc = SQLDataHelper.GetString(reader, "PhotoDesc"),
+                                                                  Name = SQLDataHelper.GetString(reader, "Name"),
+                                                                  BriefDescription = SQLDataHelper.GetString(reader, "BriefDescription"),
+                                                                  Discount = SQLDataHelper.GetFloat(reader, "Discount"),
+                                                                  UrlPath = SQLDataHelper.GetString(reader, "UrlPath"),
+                                                                  AllowPreOrder = SQLDataHelper.GetBoolean(reader, "AllowPreOrder")
+                                                              },
                                                                             new SqlParameter("@ProductID", productId),
                                                                             new SqlParameter("@RelatedType", (int)relatedType),
                                                                             new SqlParameter("@Type", PhotoType.Product.ToString())
@@ -289,7 +289,7 @@ namespace AdvantShop.Catalog
                     CommandType.Text, new SqlParameter("@ProductID", productId));
 
             SQLDataAccess.ExecuteNonQuery("[Catalog].[sp_DeleteProduct]", CommandType.StoredProcedure, new SqlParameter("@ProductID", productId));
-           
+
             CategoryService.ClearCategoryCache();
             if (sentToLuceneIndex)
                 LuceneSearch.ClearLuceneIndexRecord(productId);
@@ -338,7 +338,8 @@ namespace AdvantShop.Catalog
                 new SqlParameter("@Gtin", product.Gtin ?? (object)DBNull.Value),
                 new SqlParameter("@Adult", product.Adult),
                 new SqlParameter("@ManufacturerWarranty", product.ManufacturerWarranty),
-                new SqlParameter("@AddManually", product.AddManually)
+                new SqlParameter("@AddManually", product.AddManually),
+                new SqlParameter("@RecomendedManual", product.RecomendedManual)
                 ));
             if (product.ProductId == 0)
                 return 0;
@@ -438,7 +439,9 @@ namespace AdvantShop.Catalog
                 new SqlParameter("@Gtin", product.Gtin ?? (object)DBNull.Value),
                 new SqlParameter("@Adult", product.Adult),
                 new SqlParameter("@ManufacturerWarranty", product.ManufacturerWarranty),
-                new SqlParameter("@AddManually", product.AddManually)
+                new SqlParameter("@AddManually", product.AddManually),
+                new SqlParameter("@RecomendedManual", product.RecomendedManual)
+
                 );
 
             OfferService.DeleteOldOffers(product.ProductId, product.Offers);
@@ -530,7 +533,8 @@ namespace AdvantShop.Catalog
                 Gtin = SQLDataHelper.GetString(reader, "Gtin"),
                 Adult = SQLDataHelper.GetBoolean(reader, "Adult"),
                 ManufacturerWarranty = SQLDataHelper.GetBoolean(reader, "ManufacturerWarranty"),
-                AddManually = SQLDataHelper.GetBoolean(reader, "AddManually")
+                AddManually = SQLDataHelper.GetBoolean(reader, "AddManually"),
+                RecomendedManual= SQLDataHelper.GetInt(reader, "RecomendedManual"),
             };
         }
 
@@ -710,7 +714,7 @@ namespace AdvantShop.Catalog
             foreach (var id in oldproducts.Where(i => !ids.Contains(i)))
             {
                 SQLDataAccess.ExecuteNonQuery(
-                    "Update [Catalog].[Product] Set Enabled = 0 Where ProductId=@id and AddManually=0", 
+                    "Update [Catalog].[Product] Set Enabled = 0 Where ProductId=@id and AddManually=0",
                     CommandType.Text, new SqlParameter("@id", id));
             }
             CategoryService.ClearCategoryCache();
@@ -817,12 +821,12 @@ namespace AdvantShop.Catalog
             if (string.IsNullOrWhiteSpace(fullfilename) || (!IsExists(productId))) return;
 
             var tempName = PhotoService.AddPhoto(new Photo(0, productId, PhotoType.Product)
-                                                   {
-                                                       Description = description,
-                                                       OriginName = Path.GetFileName(fullfilename),
-                                                       PhotoSortOrder = 0,
-                                                       ColorID = colorID
-                                                   });
+            {
+                Description = description,
+                OriginName = Path.GetFileName(fullfilename),
+                PhotoSortOrder = 0,
+                ColorID = colorID
+            });
 
             if (string.IsNullOrWhiteSpace(tempName)) return;
 
@@ -937,11 +941,11 @@ namespace AdvantShop.Catalog
             return
                 SQLDataAccess.ExecuteReadList<string>(
                     "SELECT p.ProductID, p.Name, p.ArtNo, p.UrlPath, " +
-	                " ISNULL((SELECT pv.Value " +
-		            "         FROM Catalog.PropertyValue AS pv " +
-				    "                 INNER JOIN Catalog.ProductPropertyValue AS ppv ON ppv.PropertyValueID = pv.PropertyValueID " +
+                    " ISNULL((SELECT pv.Value " +
+                    "         FROM Catalog.PropertyValue AS pv " +
+                    "                 INNER JOIN Catalog.ProductPropertyValue AS ppv ON ppv.PropertyValueID = pv.PropertyValueID " +
                     "                 INNER JOIN Catalog.Property AS prop ON pv.PropertyID = prop.PropertyID " +
-		            "         WHERE ppv.ProductID = p.ProductId AND prop.Name = 'Артикул'), p.ArtNo) AS OuterArtNo " +
+                    "         WHERE ppv.ProductID = p.ProductId AND prop.Name = 'Артикул'), p.ArtNo) AS OuterArtNo " +
                     " FROM Catalog.Product  AS p " +
                     "       INNER JOIN (SELECT item, sort FROM [Settings].[ParsingBySeperator](@productIds,'/') ) AS dtt ON p.ProductId=convert(int, dtt.item) " +
                     " WHERE Enabled = 1 And CategoryEnabled = 1  " +
@@ -953,18 +957,18 @@ namespace AdvantShop.Catalog
                             UrlService.GetLink(ParamType.Product, SQLDataHelper.GetString(reader, "UrlPath"), SQLDataHelper.GetInt(reader, "ProductID"))),
                     new SqlParameter("@productIds", productIds));
 
-                //SQLDataAccess.ExecuteReadList<string>(
-                //    "SELECT Product.ProductID, Product.Name, Product.ArtNo, Product.UrlPath " +
-                //    " FROM Catalog.Product " +
-                //    " Inner Join (select item, sort from [Settings].[ParsingBySeperator](@productIds,'/') ) as dtt on Product.ProductId=convert(int, dtt.item) " +
-                //    " Where Enabled = 1 And CategoryEnabled = 1 " +
-                //    " order by dtt.sort",
-                //    CommandType.Text,
-                //    reader =>
-                //        string.Format("<a href=\"{2}\">{0}<span>({1})</span></a>",
-                //            SQLDataHelper.GetString(reader, "Name"), SQLDataHelper.GetString(reader, "ArtNo"),
-                //            UrlService.GetLink(ParamType.Product, SQLDataHelper.GetString(reader, "UrlPath"), SQLDataHelper.GetInt(reader, "ProductID"))),
-                //    new SqlParameter("@productIds", productIds));
+            //SQLDataAccess.ExecuteReadList<string>(
+            //    "SELECT Product.ProductID, Product.Name, Product.ArtNo, Product.UrlPath " +
+            //    " FROM Catalog.Product " +
+            //    " Inner Join (select item, sort from [Settings].[ParsingBySeperator](@productIds,'/') ) as dtt on Product.ProductId=convert(int, dtt.item) " +
+            //    " Where Enabled = 1 And CategoryEnabled = 1 " +
+            //    " order by dtt.sort",
+            //    CommandType.Text,
+            //    reader =>
+            //        string.Format("<a href=\"{2}\">{0}<span>({1})</span></a>",
+            //            SQLDataHelper.GetString(reader, "Name"), SQLDataHelper.GetString(reader, "ArtNo"),
+            //            UrlService.GetLink(ParamType.Product, SQLDataHelper.GetString(reader, "UrlPath"), SQLDataHelper.GetInt(reader, "ProductID"))),
+            //    new SqlParameter("@productIds", productIds));
         }
 
         public static List<string> GetForAutoCompleteByIdsInAdmin(string productIds)
