@@ -100,6 +100,57 @@ namespace AdvantShop.Catalog
                                               new SqlParameter("@Type", PhotoType.Product.ToString()),
                                               new SqlParameter("@ShoppingCartType", (int)ShoppingCartType.Compare));
         }
+        public static DataTable GetRecomendedManualProduct(int count)
+        {
+            string sqlCmd = "select Top(@count) Product.ProductId, Product.ArtNo, Name, BriefDescription, " +
+                            "(CASE WHEN Offer.ColorID is not null THEN (Select TOP(1) PhotoId From [Catalog].[Photo] WHERE ([Photo].ColorID = Offer.ColorID  or [Photo].ColorID is null) and [Product].[ProductID] = [Photo].[ObjId] and Type=@Type order by main desc, PhotoSortOrder) ELSE (Select TOP(1) PhotoId From [Catalog].[Photo] WHERE [Product].[ProductID] = [Photo].[ObjId] and Type=@Type order by main desc, PhotoSortOrder) END)  AS PhotoId, " +
+                            "(CASE WHEN Offer.ColorID is not null THEN (Select TOP(1) PhotoName From [Catalog].[Photo] WHERE ([Photo].ColorID = Offer.ColorID or [Photo].ColorID is null) and [Product].[ProductID] = [Photo].[ObjId] and Type=@Type order by main desc, PhotoSortOrder) ELSE (Select TOP(1) PhotoName From [Catalog].[Photo] WHERE [Product].[ProductID] = [Photo].[ObjId] and Type=@Type order by main desc, PhotoSortOrder) END)  AS Photo, " +
+                            "(CASE WHEN Offer.ColorID is not null THEN (Select TOP(1) [Photo].[Description] From [Catalog].[Photo] WHERE ([Photo].ColorID = Offer.ColorID  or [Photo].ColorID is null) and [Product].[ProductID] = [Photo].[ObjId] and Type=@Type) ELSE (Select TOP(1) [Photo].[Description] From [Catalog].[Photo] WHERE [Product].[ProductID] = [Photo].[ObjId] and Type=@Type AND [Photo].[Main] = 1) END)  AS PhotoDesc, " +
+                            "Discount, Ratio, RatioID, AllowPreOrder, Recomended, New, BestSeller, OnSale, UrlPath, " +
+                            "ShoppingCartItemID, Price, " +
+                            "(Select Max(Offer.Amount) from catalog.Offer Where ProductId=[Product].[ProductID]) as Amount," +
+                            " Offer.OfferID, Offer.ColorID, MinAmount, " +
+                            (SettingsCatalog.ComplexFilter ?
+                            "(select [Settings].[ProductColorsToString]([Product].[ProductID])) as Colors" :
+                            "null as Colors") +
+                            " from Catalog.Product " +
+                            "LEFT JOIN [Catalog].[Offer] ON [Product].[ProductID] = [Offer].[ProductID] and Offer.main=1 " +
+                            "LEFT JOIN Catalog.Photo on Product.ProductID=Photo.ObjId and Type=@Type and Photo.main=1 " +
+                            "LEFT JOIN [Catalog].[ShoppingCart] ON [Catalog].[ShoppingCart].[OfferID] = [Catalog].[Offer].[OfferID] AND [Catalog].[ShoppingCart].[ShoppingCartType] = @ShoppingCartType AND [ShoppingCart].[CustomerID] = @CustomerId " +
+                            "Left JOIN [Catalog].[Ratio] on Product.ProductId=Ratio.ProductID and Ratio.CustomerId=@CustomerId " +
+                            "where  Enabled=1 and CategoryEnabled=1 and [Settings].[CountCategoriesByProduct](Product.ProductID) > 0 order by {0}";
+            //switch (type)
+            //{
+            //    case TypeFlag.Bestseller:
+            //        sqlCmd = string.Format(sqlCmd, "Bestseller=1", "SortBestseller");
+            //        break;
+            //    case TypeFlag.New:
+            //        sqlCmd = string.Format(sqlCmd, "New=1", "SortNew, [DateModified] DESC");
+            //        break;
+            //    case TypeFlag.Discount:
+            //        sqlCmd = string.Format(sqlCmd, "Discount>0", "SortDiscount");
+            //        break;
+            //    case TypeFlag.OnSale:
+            //        sqlCmd = string.Format(sqlCmd, "OnSale=1", "[DateModified] DESC");
+            //        break;
+            //    case TypeFlag.Recomended:
+            //        sqlCmd = string.Format(sqlCmd, "Recomended=1", "[DateModified] DESC");
+            //        break;
+
+            //    default:
+            //        throw new NotImplementedException();
+            //}
+
+            sqlCmd = string.Format(sqlCmd, "[RecomendedManual] DESC");
+
+            return SQLDataAccess.ExecuteTable(sqlCmd, CommandType.Text,
+                                              new SqlParameter { ParameterName = "@count", Value = count },
+                                              new SqlParameter("@CustomerId", CustomerContext.CustomerId.ToString()),
+                                              new SqlParameter("@Type", PhotoType.Product.ToString()),
+                                              new SqlParameter("@ShoppingCartType", (int)ShoppingCartType.Compare));
+        }
+
+
 
         public static DataTable GetAdminProductsByType(TypeFlag type, int count)
         {

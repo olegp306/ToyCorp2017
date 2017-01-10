@@ -107,7 +107,8 @@ namespace UserControls.Default
                     {
                         liBestsellers.Attributes.Add("class", "block width-for-" + ItemsCount); //SettingsDesign.CountLineOnMainPage);
                         //lvBestSellers.DataSource = ProductOnMain.GetProductsByType(ProductOnMain.TypeFlag.Bestseller, ItemCountInRow);
-                        lvBestSellers.DataSource = ProductOnMain.GetProductsByType(ProductOnMain.TypeFlag.Bestseller, 12);
+                        //lvBestSellers.DataSource = ProductOnMain.GetProductsByType(ProductOnMain.TypeFlag.Bestseller, 12);
+                        lvBestSellers.DataSource = ProductOnMain.GetRecomendedManualProduct(12);
                         lvBestSellers.DataBind();
                     }
                     else
