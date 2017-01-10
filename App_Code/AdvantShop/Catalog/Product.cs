@@ -58,6 +58,8 @@ namespace AdvantShop.Catalog
 
         public bool ManufacturerWarranty { get; set; }
 
+        public int RecomendedManual { get; set; }
+
         //public bool CanOrderByRequest
         //{
         //    get { return ((ProductService.IsExists(ProductId)) && (AllowPreOrder) && (Offers[0].Amount <= 0)); }
