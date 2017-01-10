@@ -13521,4 +13521,7 @@
   <data name="ShippingRates_NeedAddress" xml:space="preserve">
     <value>Введите индекс и адрес доставки</value>
   </data>
+  <data name="Admin_m_Product_ProductRecomendedManual" xml:space="preserve">
+    <value>Популярность</value>
+  </data>
 </root>
