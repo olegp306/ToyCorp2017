@@ -1,0 +1,16 @@
+﻿body{
+	background:transparent url('../images/footer.jpg') no-repeat scroll center bottom;
+}
+#theme-container{
+	background:transparent url('../images/main.jpg') no-repeat scroll center -20px;
+	height:683px;
+}
+
+.shadow-split{
+	background:transparent url('../images/split.png') no-repeat scroll center top;
+	border-color:transparent;
+	height:81px;
+}
+.container > .footer {
+	padding-bottom:196px;
+}

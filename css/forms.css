@@ -1,0 +1,156 @@
+﻿.form {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+    .form .input-wrap, .form .textarea-wrap {
+        width: 100%;
+    }
+
+.form {
+    padding: 0px 0px 10px;
+    position: relative;
+}
+
+    .form .param-name {
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .form .param-value {
+        position: relative;
+    }
+
+        .form .param-value .input-wrap, .form .param-value .textarea-wrap {
+            width: 100%;
+        }
+
+        .form .param-value select {
+            width: 100%;
+        }
+
+.form-vr .input-wrap, .form-vr .textarea-wrap, .form-vr .param-value select {
+    width: 100%;
+}
+
+.form li.header {
+    font-weight: bold;
+    font-size: 16px;
+    clear: both;
+    width: 100%;
+}
+
+.form li.footer {
+    clear: both;
+    width: 100%;
+}
+
+.form li.title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-vr .param-name {
+    margin-right: 10px;
+}
+
+.form-vr .param-name, .form-vr .param-value {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.form-vr .param-name {
+    min-width: 130px;
+}
+
+.form-vr .param-value {
+    width: 240px;
+}
+
+.form-center div.param-name {
+    text-align: right;
+}
+/*custom form*/
+.reviews-form li {
+    float: left;
+    width: 47%;
+    margin-right: 3%;
+}
+
+.reviews-form .li-long {
+    width: 97%;
+    margin: 20px 0;
+}
+.captcha {
+    margin-top: 25px;
+    display: block;
+}
+
+.form-c {
+    float: left;
+    width: 45%;
+    background: none repeat scroll 0 0 #F8F8F8;
+    padding: 30px 30px 5px;
+}
+
+.form-top {
+    margin-bottom: 20px;
+    font-family: Georgia;
+    font-style: italic;
+    color: #252525;
+    line-height: 150%;
+    font-size: 11px;
+}
+
+.form-addon {
+    float: left;
+    width: 45%;
+    margin-left: 3%;
+    margin-top: 30px;
+}
+
+    .form-addon .form-addon-text {
+        font-family: Georgia;
+        font-style: italic;
+        color: #252525;
+        line-height: 150%;
+        font-size: 11px;
+    }
+
+    .form-c .title, .form-addon .title {
+        font-size: 18px;
+        padding-bottom: 20px;
+    }
+
+    .form-addon .form-addon-text .fb {
+        color: #9a9a9a;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .form-addon .form-addon-text .ph {
+        font-size: 18px;
+        color: #000;
+        text-transform: uppercase;
+    }
+
+.form-center {
+    text-align: center;
+}
+
+.form-padding {
+    padding-top: 20px;
+}
+
+.form-auth .input-wrap {
+    width: 220px;
+}
+
+.form-footer {
+    padding: 0;
+}
+
+.myacccount-pass-form .param-name {
+    min-width: 145px;
+}

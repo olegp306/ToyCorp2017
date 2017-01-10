@@ -1,0 +1,54 @@
+﻿input.spinbox
+{
+    width:37px;   
+}
+.spinbox-control {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 5px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.spinbox-plus:after
+{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #000;
+    position: relative;
+    margin: 2px auto 0 auto;
+}
+.spinbox-minus
+{
+    margin-top: 10px;
+}
+.spinbox-minus:after
+{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #000;
+    position: relative;
+    margin: 2px auto 0 auto;
+}
+.spinbox-disabled-plus:after
+{
+    border-bottom-color: #ccc;
+}
+.spinbox-disabled-minus:after
+{
+    border-top-color: #ccc;
+}

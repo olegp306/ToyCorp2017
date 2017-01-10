@@ -1,0 +1,66 @@
+﻿.location-search-wrap {
+    padding: 15px 0;
+}
+
+.location-search {
+    width: 290px;
+    height: 36px;
+    font-size: 18px;
+    line-height: 22px;
+    vertical-align: middle;
+    text-indent: 10px;
+    border-radius: 4px;
+    border: 1px solid #c2c2c2;
+    padding: 0 4px;
+    margin: 0 5px 0 0;
+    font-size: 14px;
+    padding: 0 20px 0 0;
+}
+
+.location-search-wrap .location-confirm {
+    padding: 7px 15px;
+}
+
+
+.location-cities-item {
+    display: inline-block;
+    color: #095983;
+    margin: 10px 15px 0 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 115px;
+    overflow-wrap: break-word; /* не поддерживает IE, Firefox; является копией word-wrap */
+    word-wrap: break-word;
+    word-break: keep-all; /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */
+    line-break: loose; /* нет поддержки для русского языка */
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none; /* не поддерживает IE, Opera12.14, значение auto не поддерживается Chrome */
+}
+
+    .location-cities-item span {
+        border-bottom: 1px dotted #095983;
+    }
+
+.location-countries-item {
+    display: inline-block;
+    color: #000;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    padding: 4px 8px;
+    border: 1px transparent solid;
+}
+
+    .location-countries-item.selected {
+        border-color: #c2c2c2;
+        border-radius: 5px;
+    }
+
+.location-countries-item-img {
+    vertical-align: text-top;
+    margin-right: 3px;
+}
+
+.location-modal {
+    width: 490px;
+}

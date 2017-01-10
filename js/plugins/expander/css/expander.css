@@ -1,0 +1,52 @@
+﻿.expander-enable .expander-control
+{
+    padding-left: 15px;
+    position: relative;
+    cursor: pointer;
+}
+.expander-enable .expander-control:before
+{
+    content: "";
+    background-image: url("../images/arrow.gif");
+    display: inline-block;
+    height: 7px;
+    width: 11px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 5px;
+}
+.expander-enable .expander-expanded:before
+{
+    background-position: 0 0;
+}
+.expander-enable .expander-collapse:before
+{
+    background-position: -11px 0;
+}
+
+.expander-enable .expander-ligth .expander-control:before
+{
+    top: 3px;
+}
+.expander-enable .expander-ligth .expander-expanded:before
+{
+    background-position: -22px 0;
+}
+.expander-enable .expander-ligth .expander-collapse:before
+{
+    background-position: -33px 0;
+}
+.expander-enable *[data-plugin="expander"] *[data-plugin="expander"] .expander-control:before
+{
+    background-image: url("../images/arrow.gif");
+    background-position: 0 7px;
+}
+.expander-enable *[data-plugin="expander"] *[data-plugin="expander"] .expander-expanded:before
+{
+    background-position: 0 7px;
+}
+.expander-enable *[data-plugin="expander"] *[data-plugin="expander"] .expander-collapse:before
+{
+    background-position: -11px 7px;
+}

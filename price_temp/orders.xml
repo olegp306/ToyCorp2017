@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Orders>
+  <Order OrderID="16" CustomerEmail="goryacheva-ekate@mail.ru" OfferType="Obsolete" Date="26.10.2015 10:02:54" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="195.208.141.38" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000018507" Цвет="" Размер="" Amount="1" Price="358.00" Currency="" Unit="шт" />
+      <Product ID="00000019176" Цвет="" Размер="" Amount="1" Price="442.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Горячева" Name="Екатерина" Email="goryacheva-ekate@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="89232552229" Fax="" ShippingName="Екатерина Горячева" BillingName="Екатерина Горячева" ContactName="Екатерина Горячева" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="17" CustomerEmail="Dusha1978@list.ru" OfferType="Obsolete" Date="28.10.2015 13:59:16" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="83.169.253.47" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000019281" Цвет="" Размер="" Amount="1" Price="1098.50" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Журавлев" Name="Андрей" Email="Dusha1978@list.ru" CustomerType="" City="" Address="" Zip="" Phone="89139835878" Fax="" ShippingName="Андрей Журавлев" BillingName="Андрей Журавлев" ContactName="Андрей Журавлев" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="18" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="30.10.2015 14:06:13" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="19613" Цвет="" Размер="" Amount="1" Price="1.00" Currency="" Unit="" />
+    </Products>
+    <Customer Surname="11" Name="11" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="3234215" Fax="" ShippingName="11 11" BillingName="11 11" ContactName="11 11" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="19" CustomerEmail="admin" OfferType="Obsolete" Date="30.10.2015 14:10:32" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="19613" Цвет="" Размер="" Amount="1" Price="1.00" Currency="" Unit="" />
+    </Products>
+    <Customer Surname="Администратор" Name="Администратор" Email="admin" CustomerType="" City="" Address="" Zip="" Phone="3453456" Fax="" ShippingName="" BillingName="" ContactName="" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Станиславского 12, 27" BillingAddress="Станиславского 12, 27" ShippingZip="630058" BillingZip="630058" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="20" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="30.10.2015 14:11:25" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="19613" Цвет="" Размер="" Amount="1" Price="1.00" Currency="" Unit="" />
+    </Products>
+    <Customer Surname="1345345" Name="34234" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="621564" Fax="" ShippingName="34234 1345345" BillingName="34234 1345345" ContactName="34234 1345345" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="21" CustomerEmail="admin" OfferType="Obsolete" Date="30.10.2015 15:21:10" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="19613" Цвет="" Размер="" Amount="1" Price="1.00" Currency="" Unit="" />
+    </Products>
+    <Customer Surname="Администратор" Name="Администратор" Email="admin" CustomerType="" City="" Address="" Zip="" Phone="3453456" Fax="" ShippingName="" BillingName="" ContactName="" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Станиславского 12, 27" BillingAddress="Станиславского 12, 27" ShippingZip="630058" BillingZip="630058" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="22" CustomerEmail="ertert@asdf.ru" OfferType="Obsolete" Date="30.10.2015 16:06:27" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="00000001427" Цвет="" Размер="" Amount="1" Price="4187.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="sdfasd" Name="asdfas" Email="ertert@asdf.ru" CustomerType="" City="" Address="" Zip="" Phone="3123" Fax="" ShippingName="asdfas sdfasd" BillingName="asdfas sdfasd" ContactName="asdfas sdfasd" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Томская область" BillingZone="Томская область" ShippingCity="Томск" BillingCity="Томск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="23" CustomerEmail="dfsg@sdfj.ru" OfferType="Obsolete" Date="30.10.2015 16:11:18" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="00000009364" Цвет="" Размер="" Amount="1" Price="2577.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="1234" Name="214" Email="dfsg@sdfj.ru" CustomerType="" City="" Address="" Zip="" Phone="1234" Fax="" ShippingName="214 1234" BillingName="214 1234" ContactName="214 1234" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="24" CustomerEmail="qwe@213.ru" OfferType="Obsolete" Date="30.10.2015 16:18:28" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="00000010053" Цвет="" Размер="" Amount="1" Price="894.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="123" Name="123" Email="qwe@213.ru" CustomerType="" City="" Address="" Zip="" Phone="123" Fax="" ShippingName="123 123" BillingName="123 123" ContactName="123 123" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="25" CustomerEmail="qwrq@db.rt" OfferType="Obsolete" Date="03.11.2015 8:24:48" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="00000019267" Цвет="" Размер="" Amount="1" Price="3500.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="54636" Name="56y456" Email="qwrq@db.rt" CustomerType="" City="" Address="" Zip="" Phone="536456" Fax="" ShippingName="56y456 54636" BillingName="56y456 54636" ContactName="56y456 54636" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="26" CustomerEmail="george@dot-project.ru" OfferType="Obsolete" Date="03.11.2015 9:26:48" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="00000009879" Цвет="" Размер="" Amount="1" Price="520.20" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Быков" Name="Георгий" Email="george@dot-project.ru" CustomerType="" City="" Address="" Zip="" Phone="+79139495025" Fax="" ShippingName="Георгий Быков" BillingName="Георгий Быков" ContactName="Георгий Быков" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="27" CustomerEmail="admin" OfferType="Obsolete" Date="03.11.2015 9:48:20" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта" Canceled="False">
+    <Products>
+      <Product ID="00000009929" Цвет="" Размер="" Amount="2" Price="306.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Администратор" Name="Администратор" Email="admin" CustomerType="" City="" Address="" Zip="" Phone="3453456" Fax="" ShippingName="" BillingName="" ContactName="" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Станиславского 12, 27" BillingAddress="Станиславского 12, 27" ShippingZip="630058" BillingZip="630058" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="28" CustomerEmail="anastazi-10@mail.ru" OfferType="Obsolete" Date="05.11.2015 19:23:59" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.193.244.103" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000016503" Цвет="" Размер="" Amount="1" Price="366.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Авласенко" Name="Анастасия" Email="anastazi-10@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="9132050615" Fax="" ShippingName="Анастасия Авласенко" BillingName="Анастасия Авласенко" ContactName="Анастасия Авласенко" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="29" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="06.11.2015 12:36:12" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000001556" Цвет="" Размер="" Amount="1" Price="1255.00" Currency="" Unit="шт" />
+      <Product ID="00000018577" Цвет="" Размер="" Amount="1" Price="2426.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="test" Name="test" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="123" Fax="" ShippingName="test test" BillingName="test test" ContactName="test test" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="30" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="06.11.2015 12:57:50" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000019267" Цвет="" Размер="" Amount="1" Price="3500.00" Currency="" Unit="шт" />
+      <Product ID="00000019246" Цвет="" Размер="" Amount="1" Price="6500.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="test" Name="test" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="12123" Fax="" ShippingName="test test" BillingName="test test" ContactName="test test" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="31" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="06.11.2015 13:14:27" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000019270" Цвет="" Размер="" Amount="1" Price="6900.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="test" Name="test" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="232" Fax="" ShippingName="test test" BillingName="test test" ContactName="test test" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="32" CustomerEmail="123@123.ru" OfferType="Obsolete" Date="06.11.2015 15:49:05" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="5.128.172.224" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000009879" Цвет="" Размер="" Amount="1" Price="520.20" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="sfsdfsd" Name="fsdgsd" Email="123@123.ru" CustomerType="" City="" Address="" Zip="" Phone="1213124312412" Fax="" ShippingName="fsdgsd sfsdfsd" BillingName="fsdgsd sfsdfsd" ContactName="fsdgsd sfsdfsd" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Москва" BillingZone="Москва" ShippingCity="Москва" BillingCity="Москва" ShippingAddress="" BillingAddress="" ShippingZip="115354" BillingZip="115354" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="33" CustomerEmail="a2008-84@mail.ru" OfferType="Obsolete" Date="07.11.2015 19:47:07" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="5.128.209.10" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000015141" Цвет="" Размер="" Amount="1" Price="802.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Бачурина" Name="Елена" Email="a2008-84@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="9137331526" Fax="" ShippingName="Елена Бачурина" BillingName="Елена Бачурина" ContactName="Елена Бачурина" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="34" CustomerEmail="stucco@mail.ru" OfferType="Obsolete" Date="08.11.2015 17:10:08" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="150" CustomerIP="92.127.165.208" ShippingMethod="Доставка курьером" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000009492" Цвет="" Размер="" Amount="1" Price="1811.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Щекатурин" Name="Сергей" Email="stucco@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="8-913-920-49-22" Fax="" ShippingName="Сергей Щекатурин" BillingName="Сергей Щекатурин" ContactName="Сергей Щекатурин" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Новосибирск, ул. Зеленая Горка, 1" BillingAddress="Новосибирск, ул. Зеленая Горка, 1" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="35" CustomerEmail="dusha1978@list.ru" OfferType="Obsolete" Date="10.11.2015 9:47:29" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.194.178.8" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000018579" Цвет="" Размер="" Amount="1" Price="511.03" Currency="" Unit="шт" />
+      <Product ID="00000000648" Цвет="" Размер="" Amount="1" Price="415.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Журавлев" Name="Андрей" Email="dusha1978@list.ru" CustomerType="" City="" Address="" Zip="" Phone="89139835878" Fax="" ShippingName="Андрей Журавлев" BillingName="Андрей Журавлев" ContactName="Андрей Журавлев" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="36" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="10.11.2015 11:56:35" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000000578" Цвет="" Размер="" Amount="1" Price="12.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="test" Name="test" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="12233" Fax="" ShippingName="test test" BillingName="test test" ContactName="test test" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="37" CustomerEmail="nstarokozheva@udsgn.ru" OfferType="Obsolete" Date="10.11.2015 12:05:49" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.149.37" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000000578" Цвет="" Размер="" Amount="1" Price="12.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="test" Name="test" Email="nstarokozheva@udsgn.ru" CustomerType="" City="" Address="" Zip="" Phone="123" Fax="" ShippingName="test test" BillingName="test test" ContactName="test test" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="38" CustomerEmail="admin" OfferType="Obsolete" Date="10.11.2015 12:36:31" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.194.178.8" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000000578" Цвет="" Размер="" Amount="1" Price="12.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Администратор" Name="Администратор" Email="admin" CustomerType="" City="" Address="" Zip="" Phone="3453456" Fax="" ShippingName="" BillingName="" ContactName="" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Станиславского 12, 27" BillingAddress="Станиславского 12, 27" ShippingZip="630058" BillingZip="630058" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="39" CustomerEmail="dusha1978@list.ru" OfferType="Obsolete" Date="10.11.2015 13:17:07" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.194.178.8" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000000578" Цвет="" Размер="" Amount="1" Price="12.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Журавлев" Name="Андрей" Email="dusha1978@list.ru" CustomerType="" City="" Address="" Zip="" Phone="89139835878" Fax="" ShippingName="Андрей Журавлев" BillingName="Андрей Журавлев" ContactName="Андрей Журавлев" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="40" CustomerEmail="dusha1978@list.ru" OfferType="Obsolete" Date="10.11.2015 13:43:45" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.194.178.8" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000000578" Цвет="" Размер="" Amount="1" Price="12.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Журавлев" Name="Андрей" Email="dusha1978@list.ru" CustomerType="" City="" Address="" Zip="" Phone="89139835878" Fax="" ShippingName="Андрей Журавлев" BillingName="Андрей Журавлев" ContactName="Андрей Журавлев" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="41" CustomerEmail="eminxx@ya.ru" OfferType="Obsolete" Date="10.11.2015 16:52:20" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="178.49.234.165" ShippingMethod="Доставка курьером " BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000000684" Цвет="" Размер="" Amount="2" Price="1282.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Маркова" Name="Елена" Email="eminxx@ya.ru" CustomerType="" City="" Address="" Zip="" Phone="9137569972" Fax="" ShippingName="Елена Маркова" BillingName="Елена Маркова" ContactName="Елена Маркова" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Новосибирск, ул. Грибоедова, д.32, кв.48" BillingAddress="Новосибирск, ул. Грибоедова, д.32, кв.48" ShippingZip="630009" BillingZip="630009" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="42" CustomerEmail="kramer_oksana@ngs.ru" OfferType="Obsolete" Date="11.11.2015 6:43:08" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="95.170.132.46" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000016503" Цвет="" Размер="" Amount="1" Price="366.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Крамер" Name="Оксана" Email="kramer_oksana@ngs.ru" CustomerType="" City="" Address="" Zip="" Phone="89137324094" Fax="" ShippingName="Оксана Крамер" BillingName="Оксана Крамер" ContactName="Оксана Крамер" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="44" CustomerEmail="dusha1978@list.ru" OfferType="Obsolete" Date="13.11.2015 2:35:59" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.194.178.8" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000000552" Цвет="" Размер="" Amount="1" Price="48.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Журавлев" Name="Андрей" Email="dusha1978@list.ru" CustomerType="" City="" Address="" Zip="" Phone="89139835878" Fax="" ShippingName="Андрей Журавлев" BillingName="Андрей Журавлев" ContactName="Андрей Журавлев" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="45" CustomerEmail="katerina.sheglova81@yandex.ru " OfferType="Obsolete" Date="13.11.2015 8:26:09" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="150" CustomerIP="5.137.49.148" ShippingMethod="Доставка курьером №1" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000021561" Цвет="" Размер="" Amount="1" Price="521.00" Currency="" Unit="шт" />
+      <Product ID="00000016904" Цвет="" Размер="" Amount="1" Price="934.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Щеглова" Name="Екатерина " Email="katerina.sheglova81@yandex.ru " CustomerType="" City="" Address="" Zip="" Phone="896078282168" Fax="" ShippingName="Екатерина  Щеглова" BillingName="Екатерина  Щеглова" ContactName="Екатерина  Щеглова" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Выборная 124 кв.180" BillingAddress="Выборная 124 кв.180" ShippingZip="630126" BillingZip="630126" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="46" CustomerEmail="Kalabina18@mail.ru" OfferType="Obsolete" Date="14.11.2015 17:09:29" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="92.127.255.119" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000001639" Цвет="" Размер="" Amount="1" Price="1424.00" Currency="" Unit="шт" />
+      <Product ID="00000001641" Цвет="" Размер="" Amount="1" Price="1582.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Калабина" Name="Наталья" Email="Kalabina18@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="89134835876" Fax="" ShippingName="Наталья Калабина" BillingName="Наталья Калабина" ContactName="Наталья Калабина" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Новосибирск, Танкистов,21-76" BillingAddress="Новосибирск, Танкистов,21-76" ShippingZip="630120" BillingZip="630120" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="49" CustomerEmail="koroles@mail.ru" OfferType="Obsolete" Date="15.11.2015 21:41:40" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.193.182.171" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000012881" Цвет="" Размер="" Amount="1" Price="235.00" Currency="" Unit="шт" />
+      <Product ID="00000014734" Цвет="" Размер="" Amount="1" Price="223.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Зяблицкая" Name="Елена" Email="koroles@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="89138973307" Fax="" ShippingName="Елена Зяблицкая" BillingName="Елена Зяблицкая" ContactName="Елена Зяблицкая" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="50" CustomerEmail="mastak_06@mail.ru" OfferType="Obsolete" Date="16.11.2015 5:13:45" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="212.20.35.154" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000018456" Цвет="" Размер="" Amount="1" Price="647.00" Currency="" Unit="шт" />
+      <Product ID="00000000923" Цвет="" Размер="" Amount="1" Price="647.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Жданов" Name="Дмитрий" Email="mastak_06@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="9529273929" Fax="" ShippingName="Дмитрий Жданов" BillingName="Дмитрий Жданов" ContactName="Дмитрий Жданов" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="51" CustomerEmail="gaukk@yandex.ru" OfferType="Obsolete" Date="16.11.2015 7:36:50" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="80.66.88.145" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000013732" Цвет="" Размер="" Amount="1" Price="2186.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Кирилюк" Name="Роман" Email="gaukk@yandex.ru" CustomerType="" City="" Address="" Zip="" Phone="89537774277" Fax="" ShippingName="Роман Кирилюк" BillingName="Роман Кирилюк" ContactName="Роман Кирилюк" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="52" CustomerEmail="2551824@gmail.com" OfferType="Obsolete" Date="16.11.2015 10:49:22" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="80.89.131.134" ShippingMethod="Самовывоз" BillingMethod="Пластиковая карта (Только предоплата! Перед оплатой уточните фактическое наличие на складе по тел. 8 (383) 375-76-80)" Canceled="False">
+    <Products>
+      <Product ID="00000001642" Цвет="" Размер="" Amount="1" Price="1424.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Горбунов" Name="Максим" Email="2551824@gmail.com" CustomerType="" City="" Address="" Zip="" Phone="+79833103668" Fax="" ShippingName="Максим Горбунов" BillingName="Максим Горбунов" ContactName="Максим Горбунов" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="53" CustomerEmail="kimv1977@mail.ru" OfferType="Obsolete" Date="16.11.2015 10:58:01" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="0" CustomerIP="37.193.92.75" ShippingMethod="Самовывоз" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000016632" Цвет="" Размер="" Amount="1" Price="333.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Ким" Name="Валерия" Email="kimv1977@mail.ru" CustomerType="" City="" Address="" Zip="" Phone="89137176865" Fax="" ShippingName="Валерия Ким" BillingName="Валерия Ким" ContactName="Валерия Ким" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="" BillingAddress="" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+  <Order OrderID="54" CustomerEmail="kama@ngs.ru" OfferType="Obsolete" Date="16.11.2015 14:51:46" Comments="" DiscountPercent="0" DiscountValue="0" ShippingCost="150" CustomerIP="109.174.113.22" ShippingMethod="Доставка курьером №1" BillingMethod="Наличными курьеру" Canceled="False">
+    <Products>
+      <Product ID="00000013756" Цвет="" Размер="" Amount="1" Price="1453.00" Currency="" Unit="шт" />
+    </Products>
+    <Customer Surname="Дягилева" Name="Нина Николаевна" Email="kama@ngs.ru" CustomerType="" City="" Address="" Zip="" Phone="89529157329" Fax="" ShippingName="Нина Николаевна Дягилева" BillingName="Нина Николаевна Дягилева" ContactName="Нина Николаевна Дягилева" ShippingEmail="" BillingEmail="" ShippingCountry="Россия" BillingCountry="Россия" ShippingZone="Новосибирская область" BillingZone="Новосибирская область" ShippingCity="Новосибирск" BillingCity="Новосибирск" ShippingAddress="Новосибирск, ул. Кропоткина 269-158 (5 подъезд)&#xD;&#xA;Желательно доставку в будний день в 9.30 или после 19.00. Если время не возможно, примем заказ днем по другому адресу" BillingAddress="Новосибирск, ул. Кропоткина 269-158 (5 подъезд)&#xD;&#xA;Желательно доставку в будний день в 9.30 или после 19.00. Если время не возможно, примем заказ днем по другому адресу" ShippingZip="" BillingZip="" ShippingPhone="" BillingPhone="" ShippingFax="" BillingFax="" />
+  </Order>
+</Orders>

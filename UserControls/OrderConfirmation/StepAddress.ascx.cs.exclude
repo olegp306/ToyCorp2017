@@ -1,0 +1,529 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Web;
+using AdvantShop;
+using AdvantShop.Configuration;
+using AdvantShop.Controls;
+using AdvantShop.Customers;
+using AdvantShop.Helpers;
+using AdvantShop.Orders;
+using AdvantShop.Repository;
+using Resources;
+
+namespace UserControls.OrderConfirmation
+{
+    public partial class StepAddress : System.Web.UI.UserControl
+    {
+        #region Fields
+
+        public OrderConfirmationData PageData { get; set; }
+
+        // Input data
+        public EnUserType UserType { get; set; }
+        public bool BillingIsShipping { get; set; }
+        public CustomerContact ShippingContact { get; set; }
+        public CustomerContact BillingContact { get; set; }
+        public Customer Customer { get; set; }
+
+        /// <summary>
+        /// Step address output data
+        /// </summary>
+        public class StepAddressNextEventArgs
+        {
+            public bool BillingIsShipping { get; set; }
+            public CustomerContact ShippingContact { get; set; }
+            public CustomerContact BillingContact { get; set; }
+            public Customer Customer { get; set; }
+        }
+
+        #endregion
+
+        #region Actions
+
+        public event Action<object, StepAddressNextEventArgs> NextStep;
+        protected virtual void OnNextStep(StepAddressNextEventArgs e)
+        {
+            if (NextStep != null) NextStep(this, e);
+        }
+
+        public event Action<object, EventArgs> BackStep;
+        protected virtual void OnBackStep(EventArgs e)
+        {
+            if (BackStep != null) BackStep(this, e);
+        }
+
+        #endregion
+
+        #region Protected Methods
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            txtEmail.ValidationType = UserType == EnUserType.JustRegistredUser
+                ? AdvTextBox.eValidationType.NewEmail
+                : AdvTextBox.eValidationType.Email;
+
+            if (UserType == EnUserType.RegistredUser)
+            {
+                DivNoReg.Visible = false;
+                divButtonsForNoRegUser.Visible = false;
+                if (CustomerContext.CurrentCustomer.Contacts.Count != 0)
+                {
+                    DivRegWithoutAddress.Visible = false;
+                    divButtonsForRegUserWithoutAddress.Visible = false;
+                    LoadDataToRegistredUser(true);
+                }
+                else
+                {
+                    DivReg.Visible = false;
+                    divButtonsForRegUser.Visible = false;
+                    LoadDataToRegistredUser(false);
+                }
+            }
+            else if (UserType != EnUserType.RegistredUser)
+            {
+                if (UserType == EnUserType.NewUserWithOutRegistration)
+                {
+                    txtEmail.ValidationType = AdvTextBox.eValidationType.Email;
+                }
+
+                SetRequiredFields();
+
+                var countries = CountryService.GetAllCountries();
+                
+                List<int> ipList = CountryService.GetCountryIdByIp(Request.UserHostAddress);
+                string countryId = ipList.Count == 1
+                                       ? ipList[0].ToString(CultureInfo.InvariantCulture)
+                                       : SettingsMain.SalerCountryId.ToString(CultureInfo.InvariantCulture); 
+                                        // CountryService.GetCountryIdByIso3(Resource.Admin_Default_CountryISO3).ToString(CultureInfo.InvariantCulture);
+
+                cboCountry.DataSource = countries;
+                cboCountry.DataBind();
+                if (cboCountry.Items.FindByValue(countryId) != null)
+                {
+                    cboCountry.SelectedValue = countryId;
+                    hfSelectedCountry.Value = countryId;
+                }
+
+                cboBillingCountry.DataSource = countries;
+                cboBillingCountry.DataBind();
+                if (cboBillingCountry.Items.FindByValue(countryId) != null)
+                {
+                    cboBillingCountry.SelectedValue = countryId;
+                    hfSelectedCountryBilling.Value = countryId;
+                }
+
+                DivReg.Visible = false;
+                DivRegWithoutAddress.Visible = false;
+                divButtonsForRegUser.Visible = false;
+                divButtonsForRegUserWithoutAddress.Visible = false;
+
+                tblLoginTable.Visible = UserType == EnUserType.JustRegistredUser;
+                dvDemoDataUserNotificationLoginPass.Visible = UserType == EnUserType.JustRegistredUser;
+
+                if (Demo.IsDemoEnabled)
+                {
+                    dvDemoDataUserNotification.Visible = true;
+
+                    txtEmail.Text = Demo.GetRandomEmail();
+                    txtFirstName.Text = Demo.GetRandomName();
+                    txtLastName.Text = Demo.GetRandomLastName();
+                    txtCity.Text = Demo.GetRandomCity();
+                    txtAdress.Text = Demo.GetRandomAdress();
+                    txtPhone.Text = Demo.GetRandomPhone();
+                }
+                else
+                {
+                    SetCustomer(Customer);
+                    SetShippingContact(ShippingContact);
+                    SetBillingContact(BillingContact);
+                    dvDemoDataUserNotification.Visible = false;
+                    chkBillingIsShipping.Checked = Customer == null || BillingIsShipping;
+                    hfBillingIsShippingOc.Value = BillingIsShipping ? "1" : "0";
+                }
+            }
+        }
+
+        protected void btn_GoBack_Click(object sender, EventArgs e)
+        {
+            OnBackStep(new EventArgs());
+        }
+
+        protected void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (!ValidateFormData())
+                return;
+
+            OnNextStep(new StepAddressNextEventArgs
+            {
+                BillingIsShipping = chkBillingIsShipping.Checked,
+                ShippingContact = GetShippingContact(),
+                BillingContact = GetBillingContact(),
+                Customer = GetCustomer()
+            });
+        }
+
+        protected void btnRegUserGoNext_Click(object sender, EventArgs e)
+        {
+            if (CustomerService.GetCustomer(CustomerContext.CurrentCustomer.Id) == null)
+            {
+                Response.Redirect("~/orderconfirmation.aspx");
+                return;
+            }
+
+
+            var billingIsShipping = hfBillingIsShippingOc.Value == "1";
+            var shippingContact = CustomerContext.CurrentCustomer.Contacts.FirstOrDefault(
+                contact => contact.CustomerContactID.ToString() == hfOcContactShippingId.Value);
+            CustomerContact billingContact = billingIsShipping
+                                                 ? null
+                                                 : CustomerContext.CurrentCustomer.Contacts.FirstOrDefault(
+                                                     contact =>
+                                                     contact.CustomerContactID.ToString() ==
+                                                     hfOcContactBillingId.Value);
+            if (shippingContact != null && (billingIsShipping || billingContact != null))
+                OnNextStep(new StepAddressNextEventArgs
+                {
+                    BillingIsShipping = billingIsShipping,
+                    ShippingContact = shippingContact,
+                    BillingContact = billingContact,
+                    Customer = CustomerContext.CurrentCustomer
+                });
+        }
+
+        protected void btnRegUserWithounAddressGoNext_Click(object sender, EventArgs e)
+        {
+            if (CustomerService.GetCustomer(CustomerContext.CurrentCustomer.Id) == null)
+            {
+                Response.Redirect("~/orderconfirmation.aspx");
+                return;
+            }
+
+            CustomerService.AddContact(GetShippingContactForReg(), CustomerContext.CurrentCustomer.Id);
+            if (!ckbBillingIsShippingReg.Checked)
+                CustomerService.AddContact(GetBillingContactForReg(), CustomerContext.CurrentCustomer.Id);
+
+            OnNextStep(new StepAddressNextEventArgs
+            {
+                BillingIsShipping = ckbBillingIsShippingReg.Checked,
+                ShippingContact = GetShippingContactForReg(),
+                BillingContact = !ckbBillingIsShippingReg.Checked
+                    ? GetBillingContactForReg()
+                    : null,
+                Customer = CustomerContext.CurrentCustomer
+            });
+        }
+
+        #endregion
+
+
+        #region Private Methods
+
+        private void SetRequiredFields()
+        {
+            txtLastName.ValidationType = SettingsOrderConfirmation.IsRequiredLastName
+                ? AdvTextBox.eValidationType.Required
+                : AdvTextBox.eValidationType.None;
+
+            txtPatronymic.ValidationType = SettingsOrderConfirmation.IsRequiredPatronymic
+                ? AdvTextBox.eValidationType.Required
+                : AdvTextBox.eValidationType.None;
+
+            txtPhone.ValidationType = SettingsOrderConfirmation.IsRequiredPhone
+                ? AdvTextBox.eValidationType.Required
+                : AdvTextBox.eValidationType.None;
+
+            cboCountry.ValidationType = cboBillingCountry.ValidationType = SettingsOrderConfirmation.IsRequiredCountry
+                ? AdvDropDownList.eValidationType.Required
+                : AdvDropDownList.eValidationType.None;
+
+            txtState.ValidationType = txtBillingState.ValidationType = SettingsOrderConfirmation.IsRequiredState
+                ? AdvTextBox.eValidationType.Required
+                : AdvTextBox.eValidationType.None;
+
+            txtCity.ValidationType = txtBillingCity.ValidationType = SettingsOrderConfirmation.IsRequiredCity
+                ? AdvTextBox.eValidationType.Required
+                : AdvTextBox.eValidationType.None;
+
+            txtAdress.ValidationType = txtBillingAddress.ValidationType = SettingsOrderConfirmation.IsRequiredAddress
+                ? AdvTextBox.eValidationType.Required
+                : AdvTextBox.eValidationType.None;
+        }
+        
+        private void SetCustomer(Customer customer)
+        {
+            if (customer == null) return;
+
+            txtPassword.Text = customer.Password;
+            txtFirstName.Text = customer.FirstName;
+            txtLastName.Text = customer.LastName;
+            txtPatronymic.Text = customer.Patronymic;
+            txtEmail.Text = customer.EMail;
+            txtPhone.Text = customer.Phone;
+        }
+
+        private Customer GetCustomer()
+        {
+            return new Customer
+            {
+                Id = CustomerService.InternetUserGuid,
+                EMail = txtEmail.Text,
+                Password = txtPassword.Text,
+                FirstName = HttpUtility.HtmlEncode(txtFirstName.Text),
+                LastName = HttpUtility.HtmlEncode(txtLastName.Text),
+                Patronymic = HttpUtility.HtmlEncode(txtPatronymic.Text),
+                Phone = HttpUtility.HtmlEncode(txtPhone.Text),
+            };
+        }
+
+        private bool ValidateLogin()
+        {
+            var boolIsValidPast = true;
+            if (UserType != EnUserType.RegistredUser)
+            {
+                if (txtEmail.Text.Trim().IsNullOrEmpty() || !ValidationHelper.IsValidEmail(txtEmail.Text))
+                {
+                    boolIsValidPast = false;
+                    ((AdvantShopClientPage)Page).ShowMessage(Notify.NotifyType.Error, Resource.Client_OrderConfirmation_EnterValidEmail);
+                }
+            }
+            if (UserType == EnUserType.JustRegistredUser)
+            {
+                if (txtPassword.Text.Trim().IsNullOrEmpty() || txtPassword.Text.Length < 6)
+                {
+                    ((AdvantShopClientPage)Page).ShowMessage(Notify.NotifyType.Error, Resource.Client_Registration_PasswordLenght);
+                    boolIsValidPast = false;
+                }
+                else if ((txtPassword.Text != txtPasswordConfirm.Text))
+                {
+                    ((AdvantShopClientPage)Page).ShowMessage(Notify.NotifyType.Error, Resource.Client_Registration_PasswordNotMatch);
+                    boolIsValidPast = false;
+                }
+            }
+            return boolIsValidPast;
+        }
+
+        private bool ValidateUserData()
+        {
+            return !(txtFirstName.Text.IsNullOrEmpty() ||
+                   (SettingsOrderConfirmation.IsShowLastName && SettingsOrderConfirmation.IsRequiredLastName && txtLastName.Text.IsNullOrEmpty()) ||
+                   (SettingsOrderConfirmation.IsShowPatronymic && SettingsOrderConfirmation.IsRequiredPatronymic && txtPatronymic.Text.IsNullOrEmpty()) ||
+                   (SettingsOrderConfirmation.IsShowUserAgreementText && !chkAgree.Checked));
+        }
+
+        private bool ValidateShipping()
+        {
+            return
+              !((SettingsOrderConfirmation.IsShowCity && SettingsOrderConfirmation.IsRequiredCity && txtCity.Text.IsNullOrEmpty()) ||
+                (SettingsOrderConfirmation.IsShowState && SettingsOrderConfirmation.IsRequiredState && txtState.Text.IsNullOrEmpty()) ||
+                (SettingsOrderConfirmation.IsShowAddress && SettingsOrderConfirmation.IsRequiredAddress && txtAdress.Text.IsNullOrEmpty()) ||
+                (SettingsOrderConfirmation.IsShowPhone && SettingsOrderConfirmation.IsRequiredPhone && txtPhone.Text.IsNullOrEmpty()));
+        }
+
+        private bool ValidateBilling()
+        {
+            return
+              !((txtBillingName.Text.IsNullOrEmpty()) ||
+                (SettingsOrderConfirmation.IsShowCity && SettingsOrderConfirmation.IsRequiredCity && txtBillingCity.Text.IsNullOrEmpty()) ||
+                (SettingsOrderConfirmation.IsShowState && SettingsOrderConfirmation.IsRequiredState && txtBillingState.Text.IsNullOrEmpty()) ||
+                (SettingsOrderConfirmation.IsShowAddress && SettingsOrderConfirmation.IsRequiredAddress && txtBillingAddress.Text.IsNullOrEmpty()));
+        }
+
+        private bool ValidateFormData()
+        {
+            bool boolIsValidPast = ValidateLogin() && ValidateUserData() && ValidateShipping();
+
+            if (!chkBillingIsShipping.Checked)
+            {
+                boolIsValidPast &= ValidateBilling();
+            }
+
+            if (!boolIsValidPast)
+            {
+                ((AdvantShopClientPage)Page).ShowMessage(Notify.NotifyType.Error, Resource.Client_OrderConfirmation_EnterEmptyField);
+            }
+
+            return boolIsValidPast;
+        }
+
+        private void SetShippingContact(CustomerContact customerContact)
+        {
+            if (customerContact == null) return;
+
+            cboCountry.SelectedValue = customerContact.CountryId.ToString(CultureInfo.InvariantCulture);
+            txtCity.Text = customerContact.City;
+            txtState.Text = customerContact.RegionName;
+            txtAdress.Text = customerContact.Address;
+            txtZip.Text = customerContact.Zip;
+        }
+
+        private CustomerContact GetShippingContact()
+        {
+            Country country = null;
+
+            var countryId = hfSelectedCountry.Value.TryParseInt();
+
+            if (countryId != 0)
+                country = CountryService.GetCountry(countryId);
+
+            if (country == null)
+                country = CountryService.GetAllCountries().FirstOrDefault();
+
+            return new CustomerContact
+            {
+                CustomerGuid = Guid.Empty,
+                Name = HttpUtility.HtmlEncode(txtFirstName.Text + " " + txtLastName.Text + " " + txtPatronymic.Text),
+                Country = country.Name,
+                CountryId = country.CountryID,
+                City = SettingsOrderConfirmation.IsShowCity ? HttpUtility.HtmlEncode(txtCity.Text) : string.Empty,
+                RegionName = SettingsOrderConfirmation.IsShowState ? HttpUtility.HtmlEncode(txtState.Text) :  string.Empty,
+                Address = SettingsOrderConfirmation.IsShowAddress ? HttpUtility.HtmlEncode(txtAdress.Text) : string.Empty,
+                Zip = SettingsOrderConfirmation.IsShowZip ? HttpUtility.HtmlEncode(txtZip.Text) : string.Empty
+            };
+        }
+
+        private void SetBillingContact(CustomerContact customerContact)
+        {
+            if (customerContact == null) return;
+
+            txtBillingName.Text = customerContact.Name;
+            cboBillingCountry.SelectedValue = customerContact.CountryId.ToString(CultureInfo.InvariantCulture);
+            txtBillingCity.Text = customerContact.City;
+            txtBillingState.Text = customerContact.RegionName;
+            txtBillingAddress.Text = customerContact.Address;
+            txtBillingZip.Text = customerContact.Zip;
+        }
+
+        private CustomerContact GetBillingContact()
+        {
+            Country country = null;
+
+            var countryId = hfSelectedCountryBilling.Value.TryParseInt();
+
+            if (countryId != 0)
+                country = CountryService.GetCountry(countryId);
+
+            if (country == null)
+                country = CountryService.GetAllCountries().FirstOrDefault();
+
+            return new CustomerContact
+            {
+                CustomerGuid = Guid.Empty,
+                Name = HttpUtility.HtmlEncode(txtBillingName.Text),
+                Country = country.Name,
+                CountryId = country.CountryID,
+                City = SettingsOrderConfirmation.IsShowCity ? HttpUtility.HtmlEncode(txtBillingCity.Text) : string.Empty,
+                RegionName = SettingsOrderConfirmation.IsShowState ? HttpUtility.HtmlEncode(txtBillingState.Text) : string.Empty,
+                Address = SettingsOrderConfirmation.IsShowAddress ? HttpUtility.HtmlEncode(txtBillingAddress.Text) : string.Empty,
+                Zip = SettingsOrderConfirmation.IsShowZip ? HttpUtility.HtmlEncode(txtBillingZip.Text) : string.Empty,
+            };
+        }
+
+        private CustomerContact GetShippingContactForReg()
+        {
+            Country country = null;
+
+            var countryId = hfSelectedCountry.Value.TryParseInt();
+
+            if (countryId != 0)
+                country = CountryService.GetCountry(countryId);
+
+            if (country == null)
+                country = CountryService.GetAllCountries().FirstOrDefault();
+
+            return new CustomerContact
+            {
+                CustomerGuid = CustomerContext.CurrentCustomer.Id,
+                Name = CustomerContext.CurrentCustomer.FirstName + " " + CustomerContext.CurrentCustomer.LastName + " " + CustomerContext.CurrentCustomer.Patronymic,
+                Country = country.Name,
+                CountryId = country.CountryID,
+                City = SettingsOrderConfirmation.IsShowCity ? HttpUtility.HtmlEncode(txtCityReg.Text) : string.Empty,
+                RegionName = SettingsOrderConfirmation.IsShowState ? HttpUtility.HtmlEncode(txtRegionReg.Text) : string.Empty,
+                Address = SettingsOrderConfirmation.IsShowAddress ? HttpUtility.HtmlEncode(txtAddressReg.Text) : string.Empty,
+                Zip = SettingsOrderConfirmation.IsShowZip ? HttpUtility.HtmlEncode(txtZipReg.Text) : string.Empty,
+            };
+        }
+
+        private CustomerContact GetBillingContactForReg()
+        {
+            Country country = null;
+
+            var countryId = hfSelectedCountryBilling.Value.TryParseInt();
+
+            if (countryId != 0)
+                country = CountryService.GetCountry(countryId);
+
+            if (country == null)
+                country = CountryService.GetAllCountries().FirstOrDefault();
+
+            return new CustomerContact
+            {
+                CustomerGuid = CustomerContext.CurrentCustomer.Id,
+                Name = HttpUtility.HtmlEncode(txtBillingNameReg.Text),
+                Country = country.Name,
+                CountryId = country.CountryID,
+                City = SettingsOrderConfirmation.IsShowCity ? HttpUtility.HtmlEncode(txtBillingCityReg.Text) : string.Empty,
+                RegionName = SettingsOrderConfirmation.IsShowState ? HttpUtility.HtmlEncode(txtBillingRegionReg.Text) : string.Empty,
+                Address = SettingsOrderConfirmation.IsShowAddress ? HttpUtility.HtmlEncode(txtBillingAddressReg.Text) : string.Empty,
+                Zip = SettingsOrderConfirmation.IsShowZip ? HttpUtility.HtmlEncode(txtBillingZipReg.Text) : string.Empty,
+            };
+        }
+
+        private void LoadDataToRegistredUser(bool haveAddress)
+        {
+            if (haveAddress)
+            {
+                dvLoginPanel.Visible = false;
+                
+                List<int> ipList = CountryService.GetCountryIdByIp(Request.UserHostAddress);
+                string countryId = ipList.Count == 1
+                                       ? ipList[0].ToString(CultureInfo.InvariantCulture)
+                                       : SettingsMain.SalerCountryId.ToString(CultureInfo.InvariantCulture);
+                                        //CountryService.GetCountryIdByIso3(Resource.Admin_Default_CountryISO3).ToString(CultureInfo.InvariantCulture);
+
+                cboCountryOc.DataSource = CountryService.GetAllCountries();
+                cboCountryOc.DataBind();
+
+                if (cboCountry.Items.FindByValue(countryId) != null)
+                {
+                    cboCountryOc.SelectedValue = countryId;
+                }
+
+                if (CustomerContext.CurrentCustomer.Contacts.Count > 0)
+                {
+                    hfOcContactShippingId.Value = CustomerContext.CurrentCustomer.Contacts[0].CustomerContactID.ToString();
+                }
+            }
+            else
+            {
+                dvLoginPanel.Visible = false;
+
+                ddlCountryReg.DataSource = CountryService.GetAllCountries();
+                ddlBillingCountryReg.DataSource = ddlCountryReg.DataSource;
+
+                List<int> ipList = CountryService.GetCountryIdByIp(Request.UserHostAddress);
+                string countryId = ipList.Count == 1
+                                       ? ipList[0].ToString(CultureInfo.InvariantCulture)
+                                       : SettingsMain.SalerCountryId.ToString(CultureInfo.InvariantCulture);
+                                        //CountryService.GetCountryIdByIso3(Resource.Admin_Default_CountryISO3).ToString(CultureInfo.InvariantCulture);
+
+
+                ddlCountryReg.DataBind();
+                if (ddlCountryReg.Items.FindByValue(countryId) != null)
+                    ddlCountryReg.SelectedValue = countryId;
+
+                ddlBillingCountryReg.DataBind();
+                if (ddlBillingCountryReg.Items.FindByValue(countryId) != null)
+                    ddlBillingCountryReg.SelectedValue = countryId;
+
+                if (CustomerContext.CurrentCustomer.Contacts.Count > 0)
+                {
+                    hfOcContactShippingId.Value = CustomerContext.CurrentCustomer.Contacts[0].CustomerContactID.ToString();
+                }
+            }
+        }
+
+        #endregion
+    }
+}

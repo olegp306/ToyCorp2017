@@ -1,0 +1,194 @@
+﻿.container {
+    width: 750px;
+}
+
+.search-input input.search-text {
+    width: 90px;
+}
+
+#header {
+    padding: 15px 0 0 0;
+}
+
+.pv-tile .pv-item {
+    width: 167px;
+}
+
+.block-d .d-photo {
+    width: 290px;
+}
+
+.block-d .d-info .prop {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+.tree {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+    .tree .tree-item-split {
+        display: none !important;
+    }
+
+    .tree .tree-item {
+        margin: 0;
+    }
+
+    .tree .center {
+        margin: 0 5px;
+    }
+
+    .tree .right, #tree .left, #tree .center {
+        background-image: none;
+    }
+
+.tree-item-link {
+    height: 42px;
+}
+
+.social-cell {
+    height: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.main-menu a {
+    font-size: 12px;
+}
+
+.main-menu {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+table.pv-table th.btns, table.pv-table td.btns {
+    width: 170px;
+}
+
+a.btn-middle {
+    padding: 0 5px;
+    height: 25px;
+    line-height: 26px;
+}
+
+.search .input-wrap {
+    vertical-align: middle;
+    background-position: left bottom;
+    width: 145px;
+}
+
+.search-input input.search-text {
+    width: 142px;
+}
+
+.header-contact {
+    margin-top: 8px;
+}
+
+.stroke {
+    padding: 5px 15px 40px;
+    border: 0;
+}
+
+.bloсk-search {
+    margin: 10px 0 0 0;
+}
+
+.t-search {
+    width: 100%;
+    border: 0;
+}
+
+    .t-search td {
+        vertical-align: top;
+        padding: 0 10px 0 0;
+        margin: 0;
+        border: 0;
+        width: 50%;
+    }
+
+.block-uc .t-search .content {
+    border: 0;
+    padding: 10px;
+}
+
+.bloсk-search {
+    position: relative;
+    z-index: 1;
+}
+
+    .bloсk-search input[type=text] {
+        width: 90%;
+    }
+
+    .bloсk-search select {
+        width: 100%;
+    }
+
+.block-uc .t-search .content-price {
+    padding: 0 0 10px;
+}
+
+.block-uc .t-search .block-content-part {
+    margin: 0;
+}
+
+.block-uc .t-search .block-content-part {
+    width: 255px;
+    float: left;
+}
+
+.search-apply {
+    position: relative;
+    float: right;
+    top: 12px;
+}
+
+.top-panel-cart {
+    height: 20px;
+    line-height: normal;
+    background: none;
+    padding: 0;
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    text-transform: uppercase;
+    right: 0px;
+    top: 10px;
+}
+
+.cartmini-btn {
+    float: right;
+}
+
+.minicart-list {
+    border: 1px solid #E8E8E8;
+    top: 20px;
+}
+
+    .minicart-list .summary .summary-margin {
+        padding: 15px 0 0 0;
+    }
+
+.minicart-fixed {
+    position: fixed;
+    top: 0px;
+}
+
+.fullcart .fullcart-cost {
+    width: 225px;
+}
+
+.minicart-btns-social {
+    text-align: right;
+}
+.carousel-default .jcarousel-container-horizontal {
+    width: 706px;
+}

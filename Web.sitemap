@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization ="true" >
+
+    <siteMapNode url="Admin/Default.aspx" title="$resources:Resource,Admin_Default_aspx" >
+
+        <siteMapNode url="Admin/SearchStatistic.aspx" title="$resources:Resource,Admin_SearchStatistic" />
+
+        <siteMapNode url="Admin/Catalog.aspx#" title="$resources:Resource,Admin_Catalog2_aspx">
+            <siteMapNode url="Admin/Catalog.aspx" title="$resources:Resource,Admin_Catalog_aspx"/>
+            <siteMapNode url="Admin/Product.aspx" title="$resources:Resource,Admin_Details_aspx" />
+            <siteMapNode url="Admin/Colors.aspx" title="$resources:Resource,Admin_ColorsDictionary_Header" />
+            <siteMapNode url="Admin/Sizes.aspx" title="$resources:Resource,Admin_SizesDictionary_Header" />
+            <siteMapNode url="Admin/Properties.aspx" title="$resources:Resource,Admin_properties_aspx">
+                <siteMapNode url="Admin/PropertyValues.aspx" title="$resources:Resource,Admin_propertyValues_aspx" />
+            </siteMapNode>
+            <siteMapNode url="Admin/Brands.aspx" title="$resources:Resource,Admin_MasterPageAdmin_Brands" />
+            <siteMapNode url="Admin/ProductsOnMain.aspx" title="$resources:Resource,Admin_MasterPageAdmin_ProductsOnMain" />
+            <siteMapNode url="Admin/ImportCSV.aspx" title="$resources:Resource,Admin_ImportXLS_aspx" />
+            <siteMapNode url="Admin/ExportCSV.aspx" title="$resources:Resource,Admin_ExportXLS_aspx" />
+            <siteMapNode url="Admin/PriceRegulation.aspx" title="$resources:Resource,Admin_PriceRegulation_aspx" />
+            <siteMapNode url="Admin/Reviews.aspx" title="$resources:Resource,Admin_Reviews_aspx" />
+        </siteMapNode>
+
+        <siteMapNode url="Admin/OrderSearch.aspx" title="$resources:Resource,Admin_OrderSearch_aspx" >
+            <siteMapNode url="Admin/EditOrder.aspx" title="$resources:Resource,Admin_EditOrder_aspx" />
+            <siteMapNode url="Admin/OrderStatuses.aspx" title="$resources:Resource,Admin_OrderStatuses_aspx" />
+            <siteMapNode url="Admin/OrderByRequest.aspx" title="$resources:Resource,Admin_OrderByRequest_aspx" />
+            <siteMapNode url="Admin/ExportOrdersExcel.aspx" title="$resources:Resource,Admin_ExportXLS_aspx" />
+            <siteMapNode url="Admin/Discount_PriceRange.aspx" title="$resources:Resource,Admin_Discount_PriceRange_aspx" />
+            <siteMapNode url="Admin/Coupons.aspx" title="$resources:Resource,Admin_Coupons_aspx" />
+            <siteMapNode url="Admin/Certificates.aspx" title="$resources:Resource,Admin_Certificates_aspx" />
+            <siteMapNode url="Admin/Export1C.aspx" title="$resources:Resource,Admin_Export1C_aspx" />
+
+            <siteMapNode url="Admin/CustomerSearch.aspx" title="$resources:Resource,Admin_CustomerSearch_aspx" >
+                <siteMapNode url="Admin/CustomersGroups.aspx" title="$resources:Resource,Admin_CustomersGroups_aspx" />
+                <siteMapNode url="Admin/CreateCustomer.aspx" title="$resources:Resource,Admin_CreateCustomer_aspx" />
+                <siteMapNode url="Admin/ViewCustomer.aspx" title="$resources:Resource,Admin_ViewCustomer_aspx" />
+            </siteMapNode>
+
+            <siteMapNode title="$resources:Resource,Admin_Subscription_aspx">
+                <siteMapNode url="Admin/Subscription.aspx" title="$resources:Resource,Admin_Subscription_Reg_aspx" />
+                <siteMapNode url="Admin/Subscription_Unreg.aspx" title="$resources:Resource, Admin_Subscription_Unreg_aspx" />
+                <siteMapNode url="Admin/Subscription_DeactivateReason.aspx" title="$resources:Resource,Admin_Subscription_DeactivateReason_aspx" />
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode url="Admin/StaticPages.aspx#" title="$resources:Resource,Admin_CMS_aspx" >
+            <siteMapNode url="Admin/StaticPages.aspx" title="$resources:Resource,Admin_StaticPages_aspx" />
+            <siteMapNode url="Admin/StaticPage.aspx" title="$resources:Resource,Admin_StaticPage_aspx" />
+            <siteMapNode url="Admin/StaticBlocks.aspx" title="$resources:Resource,Admin_StaticBlocks_aspx" />
+            <siteMapNode url="Admin/Menu.aspx" title="$resources:Resource,Admin_Menu_aspx" />
+            <siteMapNode url="Admin/NewsAdmin.aspx" title="$resources:Resource,Admin_NewsAdmin_aspx" />
+            <siteMapNode url="Admin/NewsCategory.aspx" title="$resources:Resource,Admin_NewsCategory_aspx" />
+            <siteMapNode url="Admin/Carousel.aspx" title="$resources:Resource,Admin_Carousel_aspx" />
+
+        </siteMapNode>
+
+        <siteMapNode url="ExportFeed.aspx" title="$resources:Resource,Admin_Modules_aspx">
+            <siteMapNode url="Admin/ModulesManager.aspx" title="$resources:Resource,Admin_ModuleManager_Header" />
+            <siteMapNode url="Admin/MailChimpSettings.aspx" title="$resources:Resource,Admin_MailChimpSettings_aspx" />
+            <siteMapNode url="Admin/RitmzSettings.aspx" title="$resources:Resource,Admin_MailChimpSettings_aspx" />
+            <siteMapNode url="Admin/ImportElbuzCsv.aspx" title="$resources:Resource,Admin_ImportElbuzCsv_aspx" />
+            <siteMapNode url="Admin/ImportPropertiesElbuzCsv.aspx" title="$resources:Resource,Admin_ImportPropertiesElbuzCsv_aspx" />
+            <siteMapNode url="Admin/Voting.aspx" title="$resources:Resource,Admin_Voting_aspx">
+                <siteMapNode url="Admin/VotingHistory.aspx" title="$resources:Resource,Admin_VotingHistory_aspx" />
+                <siteMapNode  url ="Admin/Answers.aspx" title ="$resources:Resource,Admin_Answers_aspx" />
+            </siteMapNode>
+            <siteMapNode url="Admin/SendMessage.aspx" title="$resources:Resource,Admin_SendMessage_aspx" />
+            <siteMapNode url="Admin/RootFiles.aspx" title="$resources:Resource,Admin_RootFiles_Header" />
+            <siteMapNode url="Admin/SiteMapGenerateXML.aspx" title="$resources:Resource,Admin_SiteMapGenerateXML_aspx" />
+            <siteMapNode url="Admin/SiteMapGenerate.aspx" title="$resources:Resource, Admin_SiteMapGenerate_aspx" />
+            <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=YandexMarket" title="$resources:Resource,Admin_ExportFeed_Yandex_aspx" />
+            <siteMapNode url="Admin/ExportFeedDet.aspx?ModuleId=YandexMarket" title="$resources:Resource,Admin_ExportFeedDet_Yandex_aspx" />
+
+            <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=GoogleBase" title="$resources:Resource,Admin_ExportFeed_GoogleBase_aspx" />
+            <siteMapNode url="Admin/ExportFeedDet.aspx?ModuleId=GoogleBase" title="$resources:Resource,Admin_ExportFeedDet_GoogleBase_aspx" />
+
+            <siteMapNode url="Admin/ExportFeedProgress.aspx" title="$resources:Resource,Admin_ExportFeedProgress_aspx" />
+            <siteMapNode url="Admin/ResizePhoto.aspx" title="$resources:Resource,Admin_ResizePhoto_Header" />
+            <siteMapNode url="Admin/Module.aspx" title="$resources:Resource,Admin_Module_Module" />
+            <!--<siteMapNode title="$resources:Resource,Admin_ExportFeed_aspx">
+                <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=GoogleBase" title="$resources:Resource,Admin_ExportFeed_GoogleBase_aspx" />
+                <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=PriceGrabber" title="$resources:Resource,Admin_ExportFeed_PriceGrabber_aspx" />
+                <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=ShoppingCom" title="$resources:Resource,Admin_ExportFeed_ShoppingCom_aspx" />
+                <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=YahooShopping" title="$resources:Resource,Admin_ExportFeed_YahooShopping_aspx" />
+                <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=Amazon" title="$resources:Resource,Admin_ExportFeed_Amazon_aspx" />
+                <siteMapNode url="Admin/ExportFeed.aspx?ModuleId=Shopzilla" title="$resources:Resource,Admin_ExportFeed_Shopzilla_aspx" />
+            </siteMapNode>-->
+        </siteMapNode>
+
+        <siteMapNode url="Admin/CommonSettings.aspx" title="$resources:Resource, Admin_CommonSettings_aspx">
+            <siteMapNode url="Admin/DesignConstructor.aspx" title="$resources:Resource, Admin_DesignConstructor_aspx" />
+            <siteMapNode url="Admin/Country.aspx" title="$resources:Resource,Admin_Country_aspx" >
+                <siteMapNode url="Admin/Regions.aspx" title="$resources:Resource,Admin_Region_aspx" >
+                    <siteMapNode url="Admin/Cities.aspx" title="$resources:Resource,Admin_Cities_aspx" />
+                </siteMapNode>
+            </siteMapNode>
+            <siteMapNode url="Admin/Currencies.aspx" title="$resources:Resource,Admin_Currencies_aspx" />
+            <siteMapNode url="Admin/PaymentMethod.aspx" title="$resources:Resource,Admin_PaymentMethod_aspx" />
+            <siteMapNode url="Admin/ShippingMethod.aspx" title="$resources:Resource,Admin_ShippingMethod_aspx" />
+            <siteMapNode url="Admin/Taxes.aspx" title="$resources:Resource,Admin_Taxes_aspx">
+                <siteMapNode url="Admin/Tax.aspx" title="$resources:Resource,Admin_Tax_aspx" />
+            </siteMapNode>
+            <siteMapNode url="Admin/MailFormat.aspx" title="$resources:Resource,Admin_MailFormat_aspx" >
+                <siteMapNode url="Admin/MailFormatDetail.aspx" title="$resources:Resource,Admin_MailFormatDetails_aspx" />
+            </siteMapNode>
+            <siteMapNode url="Admin/LogViewer.aspx" title="$resources:Resource,Admin_BugTracker_aspx">
+                <siteMapNode url="Admin/LogViewerDetailed.aspx" title="$resources:Resource,Admin_BugTrackerDetails_aspx" />
+            </siteMapNode>
+            <siteMapNode url="Admin/BugTrackerArchives.aspx" title="$resources:Resource,Admin_BugTrackerArchives_aspx" />
+            <siteMapNode url="Admin/BugTrackerOther.aspx" title="$resources:Resource,Admin_BugTrackerOther_aspx" />
+            <siteMapNode url="Admin/BugTrackerError404.aspx" title="$resources:Resource,Admin_BugTrackerError404_aspx" />
+            <siteMapNode url="Admin/301Redirects.aspx" title="$resources:Resource,Admin_301Redirects_aspx" />
+        </siteMapNode>
+
+        <siteMapNode url="Admin/about.aspx" title="$resources:Resource,Admin_about_aspx" />
+
+        <siteMapNode url="Admin/UsersOnline.aspx" title="$resources:Resource,Admin_UsersOnline_aspx" />
+
+    </siteMapNode>
+</siteMap>

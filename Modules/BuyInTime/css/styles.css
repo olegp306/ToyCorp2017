@@ -1,0 +1,40 @@
+[data-plugin="countdown"] {
+    padding:10px 7px;
+    display:inline-block;
+}
+.buy-in-time {
+    position: relative; padding: 15px;margin: 0 0 10px 5px; border-radius: 3px; background: #eceaeb; color: #4b4f58; font-size:13px;display: inline-block;vertical-align: top;width: 195px;
+}
+.buy-in-time .center {
+    text-align:center;
+}
+.buy-in-time-product {
+    position:relative; color:#4b4f58;margin: 5px 0;
+}
+.buy-in-time-title {
+    font-weight:bold; text-align:center; font-size:18px; margin-bottom:3px;
+}
+.buy-in-time-action {
+    font-weight:bold; text-align:center; font-size:12px; margin-bottom:9px;
+}
+.buy-in-time-action-b {
+    display:inline-block; vertical-align:top; padding-top:2px;
+}
+.buy-in-time-discount {
+    position:absolute; bottom:5px;right:0px;background: url(../images/discount.png) no-repeat;width: 75px;height: 75px;color: #fff; text-align: center; line-height: 1; font-weight: bold; padding-top: 18px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;font-size:10px;
+}
+.buy-in-time-discount-percent {
+    font-size:24px;
+}
+.buy-in-time-main-b {
+    position: relative; color: #4b4f58; font-size: 14px;margin: 10px 0;
+}
+.buy-in-time-main-b ul {
+    list-style: none;padding: 0 0 0 20px;margin: 0;
+}
+.buyintime-label {
+    background-color: #11acda;
+}
+.buy-in-time a, .buy-in-time-main-b a {
+    text-decoration: none;
+}

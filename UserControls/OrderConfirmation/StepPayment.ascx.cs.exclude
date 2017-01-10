@@ -1,0 +1,98 @@
+using System;
+using AdvantShop;
+using AdvantShop.Configuration;
+using AdvantShop.Orders;
+using AdvantShop.Payment;
+using AdvantShop.Helpers;
+
+namespace UserControls.OrderConfirmation
+{
+    public partial class StepPayment : System.Web.UI.UserControl
+    {
+        public OrderConfirmationData PageData { get; set; }
+
+        public class StepPaymentNextEventArgs
+        {
+            public int SelectPaymentID { get; set; }
+            public string SelectedPaymentText { get; set; }
+            public ProcessType SelectedPaymentProcessType { get; set; }
+            public PaymentType SelectedPaymentType { get; set; }
+
+            public float SelectedPaymentExtracharge { get; set; }
+            public ExtrachargeType SelectedPaymentExtrachargeType { get; set; }
+
+        }
+
+        public event Action<object, StepPaymentNextEventArgs> NextStep;
+        public void OnNextStep(StepPaymentNextEventArgs arg)
+        {
+            if (NextStep != null) NextStep(this, arg);
+        }
+
+        public event Action<object, StepPaymentNextEventArgs> BackStep;
+        public void OnBackStep(StepPaymentNextEventArgs arg)
+        {
+            if (BackStep != null) BackStep(this, arg);
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsPostBack) return;
+            if (PageData == null) return;
+            btnNextFromShipPay.Enabled = true;
+            LoadPayment();
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            //if(pm.SelectedID == 0)
+            //{
+            //    btnNextFromShipPay.Visible = false;
+            //}
+        }
+
+        protected void btnBackFromShipPay_Click(object sender, EventArgs e)
+        {
+            OnBackStep(new StepPaymentNextEventArgs
+                {
+                    SelectPaymentID = pm.SelectedID,
+                });
+        }
+        protected void btnNextFromShipPay_Click(object sender, EventArgs e)
+        {
+            OnNextStep(new StepPaymentNextEventArgs
+                {
+                    SelectPaymentID = pm.SelectedID,
+                    SelectedPaymentText = pm.SelectedText,
+                    SelectedPaymentProcessType = pm.SelectedProcessType,
+                    SelectedPaymentType = pm.SelectedType,
+                    SelectedPaymentExtracharge = pm.SelectedPaymentExtracharge,
+                    SelectedPaymentExtrachargeType = pm.SelectedPaymentExtrachargeType
+                });
+        }
+
+        private void LoadPayment()
+        {
+            int paymentId = 0;       
+            var shpCart = ShoppingCartService.CurrentShoppingCart;
+            bool showCertificate = SettingsOrderConfirmation.EnableGiftCertificateService && shpCart.Certificate != null &&
+                                   shpCart.TotalPrice - shpCart.TotalDiscount + PageData.SelectShippingRate <= 0;
+
+            bool hideCash = false; // shpCart.All(item => item.ItemType != EnumItemType.Product); 
+
+            pm.ShippingMethodId = PageData.SelectShippingId;
+            pm.Ext = PageData.ShippingOptionEx;
+            if (CommonHelper.GetCookieString("payment").IsNotEmpty() && Int32.TryParse(CommonHelper.GetCookieString("payment"), out paymentId))
+            {
+                pm.SelectedID = paymentId;
+                CommonHelper.DeleteCookie("payment");
+            }
+            else
+            {
+                pm.SelectedID = PageData.SelectPaymentId;
+            }
+            pm.LoadMethods(PageData.BillingContact.Country, PageData.BillingContact.City, showCertificate, hideCash);
+            btnNextFromShipPay.Enabled &= pm.HasMethods;
+        }
+    }
+}

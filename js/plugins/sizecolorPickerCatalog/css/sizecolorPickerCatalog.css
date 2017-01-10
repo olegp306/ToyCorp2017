@@ -1,0 +1,78 @@
+﻿.sizeColorPicker .sizes, .sizeColorPicker .colors {
+    margin: 0 0 3px;
+}
+
+.sizeColorPicker .size-item {
+    position: relative;
+    height: 30px;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+    border: 1px #ccc solid;
+    border-radius: 3px;
+}
+
+    .sizeColorPicker .size-item.selected {
+        border-color: #FF7801;
+    }
+
+    .sizeColorPicker .size-item[data-disabled] {
+        color: #CCCCCC;
+        cursor: default;
+    }
+
+.sizeColorPicker .sizeColorPicker-field {
+    color: #7d7d7d;
+    margin-bottom: 10px;
+}
+
+.sizeColorPicker .size-item-inside {
+    padding: 5px;
+    height: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+    .sizeColorPicker .size-item-inside:hover {
+        border-color: #FF7801;
+    }
+
+.sizeColorPicker .color-item {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+    /*width: 16px;
+    height: 16px;*/
+    overflow: hidden;
+    border: 1px #fff solid;
+    margin: 4px 6px 8px;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+    background: -moz-linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+    background: -ms-linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+    background: -o-linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+    background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#40ffffff', endColorstr='#1f000000');
+    box-shadow: 0 0 0 1px #ccc;
+    cursor: pointer;
+}
+
+    .sizeColorPicker .color-item.selected {
+        box-shadow: 0 0 0 2px red;
+    }
+
+.scp {
+}
+
+.scp-item {
+    display: inline-block;
+    position: relative;
+    background-color: #fff;
+}
+
+    .scp .scp-item:hover .flexslider {
+        display: block;
+        background:#fff;
+    }

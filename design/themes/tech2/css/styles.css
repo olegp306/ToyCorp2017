@@ -1,0 +1,19 @@
+﻿body{
+	background:transparent url('../images/footer.png') no-repeat scroll center bottom;
+}
+#theme-container {
+	background:transparent url('../images/bg.jpg') no-repeat scroll center top;
+	height:676px;
+}
+.shadow-split{
+	background:transparent url('../images/shadow.jpg') no-repeat scroll left top;
+	height:54px;
+	border:0px;
+	margin-bottom:20px;
+}
+.footer{
+	padding-bottom:85px;
+}
+.footer-two-level{
+	margin-left:90px;
+}

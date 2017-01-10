@@ -1,0 +1,55 @@
+﻿.vote .voting-question {
+    margin-bottom: 10px;
+}
+.vote .row
+{
+    margin: 0 0 5px;
+}
+.vote .vote-progressbar
+{
+    color: #000;
+    font-size: 11px;
+    position: relative;
+    height: 12px;
+    text-align: right;
+    width: 85%;
+    display: inline-block;
+    vertical-align: top;
+}
+.vote .variant-count
+{
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+}
+.vote .vp-line
+{
+    position: absolute;
+    height: 12px;
+    z-index: 0;
+    background-color: #0168ab;
+    left: 0px;
+    top: 0px;
+}
+.vote  .vp-line-sel
+{
+    background-color: #e20000;
+}
+.vote input[type=radio]
+{
+    padding: 0px;
+    margin: 0 5px 0 0;
+}
+.vote .total .text
+{
+    font-weight: bold;
+}
+.vote .total
+{
+    padding-top: 5px;
+}
+.vote .vote-submit {
+    padding-top: 10px;
+}

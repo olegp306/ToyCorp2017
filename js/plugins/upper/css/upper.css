@@ -1,0 +1,36 @@
+﻿.adv-upper-panel, .adv-upper-panel-animated
+{
+    position: fixed;
+    width: 40px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+.adv-upper-panel-animated
+{
+    z-index: 0;
+    display: none;
+    cursor: pointer;
+    z-index: 0;
+}
+.adv-upper-panel-inside
+{
+    background: #ccc;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    filter: alpha(opacity=30);
+}
+.adv-upper-symbol
+{
+    margin-top: 10px;
+    text-align: center;
+    z-index: 5;
+    font-size: 200%;
+    display: none;
+}
+

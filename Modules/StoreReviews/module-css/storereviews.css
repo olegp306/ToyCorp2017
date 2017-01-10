@@ -1,0 +1,133 @@
+﻿.shop-reviews {
+    vertical-align: top;
+    width: 64%;
+    /*float: left;*/
+    display: inline-block;
+    min-width: 240px;
+    padding-right: 15px;
+}
+.shop-reviews-wrap {
+    border: 1px #eaeaea solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.shop-reviews-child-wrap {
+    margin: 15px 0 0 30px;
+}
+.shop-reviews-rating, .shop-reviews-form-rate {
+    display: inline-block;
+    min-width: 100px;
+    min-height: 20px;
+    position: relative;
+    vertical-align: middle;
+}
+.shop-reviews-paging {
+    text-align: center;
+    margin-bottom: 15px;
+}
+#hint {
+    vertical-align: middle;
+    display: inline-block;
+}
+.shop-reviews-rate {
+    font-style: italic;
+    display: inline-block;
+    vertical-align: middle;
+}
+.shop-reviews-date {
+    color: #b1b1b1;
+}
+.shop-reviews-text {
+    line-height: 1.2;
+}
+.shop-reviews-row {
+    margin-bottom: 5px;
+}
+.shop-reviews-name {
+    font-weight: bold;
+    color: #9e100f;
+    font-size: 110%;
+}
+.shop-reviews-form-wrap {
+    vertical-align: top;
+    /*float: right;*/
+    width: 30%;
+    background: #f8f8f8;
+    padding:10px 25px 10px 10px;
+    display: inline-block;
+    min-width: 205px;
+}
+.shop-reviews-form-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 115%;
+}
+.shop-reviews-form {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.shop-reviews-form .shop-reviews-form-row {
+    margin: 0 0 10px;
+    padding: 0;
+    position: relative;
+}
+.shop-reviews-form-row label{
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.input-wrap, .textarea-wrap {
+    width: 100%;
+}
+.shop-reviews-li-error {
+    color: red;
+}
+.shop-reviews-li-error .error-item {
+    margin-bottom: 10px;
+}
+.shop-reviews-form-reply {
+    margin-top: 15px;
+    padding: 0 25px 0 0;
+}
+.shop-reviews-form-input {
+    position: relative;
+}
+.shop-reviews-paging a, .shop-reviews-paging span{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.shop-reviews-key {
+    color: #C5C5C4;
+    font-family: Tahoma;
+    line-height: 12px;
+}
+.shop-reviews-selected {
+    color: #737271;
+}
+.validelem-message {
+	background: #f7e7e6;
+	color: #b1140c;
+	font-style: italic;
+	font-family: Georgia;
+	font-size: 11px;
+	position: relative;
+	display: none;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+}
+.validelem-message {
+    padding: 4px;
+}
+.validelem-icon-success {
+	background: transparent url('../module-js/module-validate/success.png') no-repeat scroll center center;
+}
+.validelem-icon-error {
+	background: transparent url('../module-js/module-validate/error.png') no-repeat scroll center center;
+}
+.validelem-icon {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}

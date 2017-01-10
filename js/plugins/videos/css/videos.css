@@ -1,0 +1,13 @@
+﻿.video-item {
+    position: relative;
+    margin-bottom: 15px;
+    display:inline-block;
+    vertical-align:middle;
+    margin:0 15px 15px 0;
+}
+.video-description {
+    margin-top: 10px;
+}
+.video-description:empty {
+    margin-top: 0;
+}

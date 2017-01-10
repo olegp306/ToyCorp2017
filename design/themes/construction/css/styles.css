@@ -1,0 +1,11 @@
+﻿.container > .footer {
+    background: transparent url('../images/footer-part.png') no-repeat scroll left bottom;
+}
+#theme-container{
+	background:transparent url('../images/bg.jpg') repeat-x scroll center top;
+	height:637px;
+}
+.shadow-split{
+	background:transparent url('../images/shadown.png') no-repeat scroll center top;
+	border:0px;
+}

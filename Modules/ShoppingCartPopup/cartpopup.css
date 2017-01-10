@@ -1,0 +1,157 @@
+﻿.added-to-cart {
+    position: relative;
+}
+
+    .added-to-cart .header {
+        font-size: 23px;
+        font-weight: bold;
+    }
+
+.added-product-b {
+    margin: 10px 0;
+    border-top: 1px #ebeef1 solid;
+    padding: 10px 0 0 0;
+}
+
+.added-product-photo {
+    display: table-cell;
+    padding: 0 10px 0 0;
+}
+
+    .added-product-photo img {
+        max-width: 150px;
+    }
+
+.added-product-item {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.added-product-price {
+    margin: 10px 0 0 0;
+}
+
+.added-product-item a.link-pv-name {
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.added-product-price .price-title {
+    margin-bottom: 5px;
+    color: #7d7d7d;
+}
+
+.added-product-content {
+    display: inline-block;
+    width: 300px;
+    vertical-align: middle;
+}
+
+.added-cart {
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    text-align: center;
+    border-left: 1px #ebeef1 solid;
+}
+
+.added-cart-title {
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+.added-cart-sum {
+    margin: 7px 0 15px 0;
+}
+
+    .added-cart-sum .price {
+        display: inline-block;
+        font-size: 13px;
+    }
+
+    .added-cart-sum span {
+        font-weight: bold;
+        color: #999;
+    }
+
+.added-btns {
+    margin: 15px 0 0 0;
+}
+
+    .added-btns .btn-add {
+        margin: 0 10px 0 0;
+    }
+
+.added-product-options {
+    background: transparent url('cart-arr.png') no-repeat scroll 240px center;
+    min-height: 40px;
+}
+
+.added-product-content .item-option {
+    margin: 5px 0 0 0;
+}
+
+    .added-product-content .item-option .opt-h {
+        color: #999;
+        display: inline-block;
+    }
+
+.added-to-cart .related-products-title {
+    border-top: 1px #ebeef1 solid;
+    color: #999;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.added-to-cart .pv-photo img {
+    max-width: 160px;
+}
+
+.added-to-cart .carousel-related-products, .added-to-cart .jcarousel-container-horizontal {
+    width: 630px;
+    position: relative;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-next-horizontal {
+    top: 95px;
+    right: -25px;
+    width: 20px;
+    height: 35px;
+    background-position: -60px -69px;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-prev-horizontal {
+    top: 95px;
+    left: -30px;
+    width: 20px;
+    height: 35px;
+    background-position: 0px -36px;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-next-horizontal:hover, .jcarousel-next-horizontal:focus {
+    background-position: -40px -69px;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-next-horizontal:active {
+    background-position: -20px -69px;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-prev-horizontal:hover, .jcarousel-prev-horizontal:focus {
+    background-position: -20px -36px;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-prev-horizontal:active {
+    background-position: -40px -36px;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-next-disabled-horizontal, .added-to-cart .jcarousel-container .jcarousel-next-disabled-horizontal:hover, .added-to-cart .jcarousel-container .jcarousel-next-disabled-horizontal:focus, .carousel-default .jcarousel-container .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background: transparent none;
+}
+
+.added-to-cart .jcarousel-container .jcarousel-prev-disabled-horizontal, .added-to-cart .jcarousel-container .jcarousel-prev-disabled-horizontal:hover, .added-to-cart .jcarousel-container .jcarousel-prev-disabled-horizontal:focus, .carousel-default .jcarousel-container .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background: transparent none;
+}

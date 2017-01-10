@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" CodeFile="MasterPage.master.cs" Inherits="Templates.Social.MasterPage" ClientIDMode="Static"
+    EnableViewState="false" ViewStateMode="Disabled" %>
+
+<%--Do not change ClientIDMode in MasterPage file from "Static".  If you need another ClientIDMode, change it only for that control, what you need --%>
+<%@ Import Namespace="AdvantShop.Configuration" %>
+<%@ Import Namespace="AdvantShop.Design" %>
+<%@ Import Namespace="AdvantShop.SEO" %>
+<%@ Import Namespace="AdvantShop.CMS" %>
+<%@ Register TagPrefix="adv" TagName="Favicon" Src="~/UserControls/MasterPage/Favicon.ascx" %>
+<%@ Register TagPrefix="adv" TagName="StaticBlock" Src="~/UserControls/StaticBlock.ascx" %>
+<%@ Register TagPrefix="adv" TagName="LiveCounter" Src="~/UserControls/MasterPage/LiveinternetCounter.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuTop" Src="~/UserControls/MasterPage/MenuTop.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuCatalog" Src="~/UserControls/MasterPage/MenuCatalog.ascx" %>
+<%@ Register TagPrefix="adv" TagName="DemoFeedBack" Src="~/UserControls/MasterPage/DemoFeedBack.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuTopMainPage" Src="~/UserControls/MasterPage/MenuTopMainPage.ascx" %>
+<%@ Register TagPrefix="adv" TagName="Search" Src="~/UserControls/MasterPage/Search.ascx" %>
+<%@ Register TagPrefix="adv" TagName="TopPanel" Src="~/UserControls/MasterPage/TopPanel.ascx" %>
+<%@ Register TagPrefix="adv" TagName="DiscountByTime" Src="~/UserControls/MasterPage/DiscountByTime.ascx" %>
+<%@ Register TagPrefix="adv" TagName="TrialBlock" Src="~/Admin/UserControls/MasterPage/TrialBlock.ascx" %>
+<%@ Register TagPrefix="adv" TagName="AchievementsHelp" Src="~/Admin/UserControls/Achievements/AchievementsHelp.ascx" %>
+<%@ Register TagPrefix="adv" TagName="ShoppingCart" Src="~/UserControls/MasterPage/ShoppingCart.ascx" %>
+<%@ Register TagPrefix="adv" TagName="BubbleZone" Src="~/UserControls/MasterPage/BubbleZone.ascx" %>
+<!DOCTYPE html>
+<html>
+<head class="<%= GetCssClassForDocument() %>">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="AdVantShop.NET">
+    <base href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + (!Request.ApplicationPath.EndsWith("/") ? "/" : string.Empty) %>">
+    <asp:Literal ID="headMeta" runat="server" />
+    <%= SettingsSEO.CustomMetaString %>
+    <%= CssTop %>
+    <%= JsTop %>
+    <asp:Literal ID="liViewCss" runat="server" />
+    <link rel="stylesheet" href="<%= DesignService.TemplatePath + "design/" + DesignService.GetDesign("theme") + "/css/styles.css" %>" id="themecss" />
+    <link rel="stylesheet" href="<%= DesignService.TemplatePath + "design/colors/" + DesignService.GetDesign("colorscheme") + "/css/styles.css" %>" id="colorcss" />
+    <asp:Literal runat="server"  id="lsocialCss" />
+    <asp:Literal ID="headScript" runat="server" />
+    <adv:Favicon ID="Favicon" runat="server" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHeader" runat="server">
+    </asp:ContentPlaceHolder>
+    <%= AdvantShop.Modules.ModulesRenderer.RenderIntoHead()%>
+</head>
+<body data-plugin="upper" data-upper-options="{scrollSpeed: 0}">
+    <%= TagManager.RenderCounter() %>
+    <%= AdvantShop.Modules.ModulesRenderer.RenderAfterBodyStart()%>
+    <adv:LiveCounter runat="server" />
+    <asp:ContentPlaceHolder ID="cphGoogleAnalytics" runat="server">
+        <%= new GoogleAnalyticsString().GetGoogleAnalyticsString()%>
+    </asp:ContentPlaceHolder>
+    <form id="form" runat="server">
+        <adv:TopPanel runat="server" />
+        <div class="container">
+            <header id="header">
+                <a href="<%= AdvantShop.Core.UrlRewriter.UrlService.GetAbsoluteLink("/") %>">
+                    <adv:StaticBlock ID="sbSocialLogo" runat="server" SourceKey="SocialLogo" />
+                </a>
+                <div class="center-cell">
+                    <adv:MenuTop ID="menuTop" runat="server" />
+                    <adv:Search runat="server" ID="searchBig" Visible="False" />
+                </div>
+                <div class="contact-cell">
+                    <div class="contact-inside">
+                        <adv:ShoppingCart runat="server" />
+                        <div class="<%= IsAdmin ? "inplace-indicator-offset": "" %> <%= IsAdmin && !SettingsMain.EnableInplace ? "inplace-indicator-offset-off": "" %>">
+                            <div class="phone js-phone js-location-replacement" data-location-mask="#phone#" <%= InplaceEditor.Phone.Attribute() %>>
+                                <%= AdvantShop.Repository.CityService.GetPhone()%>
+                            </div>
+                        </div>
+                        <adv:Search runat="server" ID="searchBlock" />
+                        <div class="header-message <%= IsAdmin ? "inplace-indicator-offset": "" %> <%= IsAdmin && !SettingsMain.EnableInplace ? "inplace-indicator-offset-off": "" %>">
+                            <adv:StaticBlock ID="email" runat="server" SourceKey="email" CssClass="static-block-email-header" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <adv:MenuCatalog ID="menuCatalog" runat="server" />
+            <adv:MenuTopMainPage ID="menuTopMainPage" runat="server" />
+            <div id="notify">
+                <%= DisplayMessages()%>
+            </div>
+            <asp:ContentPlaceHolder ID="cphMain" runat="server">
+            </asp:ContentPlaceHolder>
+            <br class="clear" />
+            <footer class="footer">
+                <div class="footer-two-level stretch">
+                        <div class="stretch-item">
+                            <adv:StaticBlock ID="dbCopyright" runat="server" SourceKey="Copyright" />
+                        </div>
+                        <div class="stretch-item">
+                            <adv:StaticBlock ID="sbRightBottom" runat="server" SourceKey="RightBottom" />
+                        </div>
+                    </div>
+            </footer>
+        </div>
+        <adv:StaticBlock ID="liveoperator" runat="server" SourceKey="liveoperator" DisableInplaceEditor="true" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderBottom" runat="server">
+        </asp:ContentPlaceHolder>
+        <div id="theme-container">
+            <div class="theme-left"></div>
+            <div class="theme-right"></div>
+        </div>
+        <adv:DiscountByTime runat="server" ID="discountByTime" />
+        <adv:DemoFeedBack runat="server" ID="demoFeedBack" />
+        <adv:BubbleZone runat="server" ID="BubbleZone" />
+        <adv:TrialBlock runat="server" id="trialBlock" /> 
+        <%if (IsAdmin)
+          {%>
+        <script src="ckeditor/ckeditor.js?version=4.4"></script>
+        <script src="ckeditor/configs/inline/config.js?version=4.4"></script>
+        <%} %>
+        <%= JsBottom %>
+        <adv:AchievementsHelp runat="server" AchievementsHelpType="Client" />
+        <%= AdvantShop.Modules.ModulesRenderer.RenderBeforeBodyEnd()%>
+    </form>
+</body>
+</html>

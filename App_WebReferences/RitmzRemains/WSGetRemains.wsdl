@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd1="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData" name="WSGetRemains" targetNamespace="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:xs1="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="item">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="remain">
+        <xs:sequence>
+          <xs:element name="item" type="xs1:item" />
+          <xs:element name="quantity" type="xs:int" />
+          <xs:element name="storage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="response">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="remains" type="xs1:remain" />
+          <xs:element name="error" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ПолучитьОстатки">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Номенклатура" nillable="true" type="xs:string" />
+            <xs:element name="Склад" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОстаткиResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:response" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПусто">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПустоResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="ПолучитьОстаткиRequestMessage">
+    <part name="parameters" element="tns:ПолучитьОстатки" />
+  </message>
+  <message name="ПолучитьОстаткиResponseMessage">
+    <part name="parameters" element="tns:ПолучитьОстаткиResponse" />
+  </message>
+  <message name="ПолучитьПустоRequestMessage">
+    <part name="parameters" element="tns:ПолучитьПусто" />
+  </message>
+  <message name="ПолучитьПустоResponseMessage">
+    <part name="parameters" element="tns:ПолучитьПустоResponse" />
+  </message>
+  <portType name="WSGetRemainsPortType">
+    <operation name="ПолучитьОстатки">
+      <input message="tns:ПолучитьОстаткиRequestMessage" />
+      <output message="tns:ПолучитьОстаткиResponseMessage" />
+    </operation>
+    <operation name="ПолучитьПусто">
+      <input message="tns:ПолучитьПустоRequestMessage" />
+      <output message="tns:ПолучитьПустоResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="WSGetRemainsSoapBinding" type="tns:WSGetRemainsPortType">
+    <soapbind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ПолучитьОстатки">
+      <soapbind:operation soapAction="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData#WSGetRemains:ПолучитьОстатки" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ПолучитьПусто">
+      <soapbind:operation soapAction="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData#WSGetRemains:ПолучитьПусто" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="WSGetRemainsSoap12Binding" type="tns:WSGetRemainsPortType">
+    <soap12bind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ПолучитьОстатки">
+      <soap12bind:operation soapAction="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData#WSGetRemains:ПолучитьОстатки" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ПолучитьПусто">
+      <soap12bind:operation soapAction="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/RemainsData#WSGetRemains:ПолучитьПусто" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSGetRemains">
+    <port name="WSGetRemainsSoap" binding="tns:WSGetRemainsSoapBinding">
+      <documentation>
+        <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1" />
+      </documentation>
+      <soapbind:address location="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/GetRemains.1cws" />
+    </port>
+    <port name="WSGetRemainsSoap12" binding="tns:WSGetRemainsSoap12Binding">
+      <soap12bind:address location="http://cc.ritm-z.com:8008/RitmZ_GM82/ws/GetRemains.1cws" />
+    </port>
+  </service>
+</definitions>

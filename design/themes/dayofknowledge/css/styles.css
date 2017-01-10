@@ -1,0 +1,12 @@
+﻿#theme-container{
+	background:transparent url(../images/day-of-knowledge.jpg) no-repeat scroll center top;
+	height:637px;
+}
+.shadow-split{
+	background:transparent url('../images/shadown.png') no-repeat scroll center top;
+	border:0px;
+}
+.container > div.footer {
+    padding-bottom: 90px;
+    background:transparent url('../images/footer.jpg') no-repeat scroll left bottom;
+}

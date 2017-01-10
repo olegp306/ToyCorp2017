@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" CodeFile="MasterPageSocial.master.cs" Inherits="Social.MasterPage"
+    ClientIDMode="Static" EnableViewState="false" ViewStateMode="Disabled" %>
+
+<%--Do not change ClientIDMode in MasterPage file from "Static".  If you need another ClientIDMode, change it only for that control, what you need --%>
+<%@ Import Namespace="AdvantShop.Configuration" %>
+<%@ Import Namespace="AdvantShop.SEO" %>
+<%@ Register Src="../UserControls/LogoImage.ascx" TagName="Logo" TagPrefix="adv" %>
+<%@ Register Src="../UserControls/MasterPage/Favicon.ascx" TagName="Favicon" TagPrefix="adv" %>
+<%@ Register Src="../UserControls/StaticBlock.ascx" TagName="StaticBlock" TagPrefix="adv" %>
+<%@ Register Src="../UserControls/MasterPage/LiveinternetCounter.ascx" TagName="LiveCounter"
+    TagPrefix="adv" %>
+<%@ Register Src="~/Social/UserControls/ShoppingCartSocial.ascx" TagName="ShoppingCartSocial" TagPrefix="adv" %>
+<%@ Register Src="~/Social/UserControls/MasterPage/MenuTopSocial.ascx" TagName="MenuTopSocial" TagPrefix="adv" %>
+<%@ Register Src="~/Social/UserControls/MasterPage/MenuCatalogSocial.ascx" TagName="MenuCatalogSocial" TagPrefix="adv" %>
+<%@ Register Src="~/Social/UserControls/MasterPage/MenuTopMainPageSocial.ascx" TagName="MenuTopMainPage" TagPrefix="adv" %>
+<%@ Register Src="~/Social/UserControls/SearchSocial.ascx" TagName="Search" TagPrefix="adv" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="AdVantShop.NET" />
+    <base href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + (!Request.ApplicationPath.EndsWith("/") ? "/" : string.Empty) %>" />
+    <asp:Literal ID="headMeta" runat="server"></asp:Literal>
+    <%= SettingsSEO.CustomMetaString %>
+    <%= CssTop %>
+    <%= JsTop %>
+    <link rel="stylesheet" href="design/colors/blue/css/styles.css" />
+    <link rel="stylesheet" href="social/css/social.css" />
+    <asp:Literal ID="liViewCss" runat="server" />
+    <%if (new GoogleAnalyticsString().Enabled)
+      {%>
+	<script src="<%= (Request.IsSecureConnection ? "https://" : "http://") + "google-analytics.com/ga.js" %>"></script>
+    <% } %>
+    <adv:Favicon ID="Favicon" runat="server" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHeader" runat="server">
+    </asp:ContentPlaceHolder>
+<%= AdvantShop.Modules.ModulesRenderer.RenderIntoHead()%>
+</head>
+<body>
+    <adv:LiveCounter runat="server" />
+    <asp:ContentPlaceHolder ID="cphGoogleAnalytics" runat="server">
+        <%= new GoogleAnalyticsString().GetGoogleAnalyticsString()%>
+    </asp:ContentPlaceHolder>
+    <form id="form" runat="server">
+        <!--container-->
+        <div class="container">
+            <!--header-->
+            <header id="header">
+                <adv:Logo ID="Logo" ImgHref="/social/catalogsocial.aspx" runat="server" CssClassImage="logoFloat" />
+                <div class="social-cell">
+                    <adv:ShoppingCartSocial ID="ShoppingCartSocial" runat="server" />
+                    <adv:MenuTopSocial ID="menuTop" runat="server" />
+                    <adv:Search runat="server" ID="searchBig" Visible="False" />
+                </div>
+
+            </header>
+            <!--end_header-->
+            <!--main_tree-->
+            <adv:MenuCatalogSocial ID="menuCatalog" runat="server" />
+            <!--end_main_tree-->
+            <!--content-->
+            <adv:MenuTopMainPage ID="menuTopMainPage" runat="server" />
+            <asp:ContentPlaceHolder ID="cphMain" runat="server">
+            </asp:ContentPlaceHolder>
+            <br class="clear" />
+            <!--footer-->
+            <div class="footer">
+                <div class="content">
+                    <adv:StaticBlock ID="dbCopyright" runat="server" SourceKey="CopyrightSocial" />
+                    <br class="clear" />
+                </div>
+            </div>
+            <!--end_footer-->
+        </div>
+        <adv:StaticBlock ID="liveoperator" runat="server" SourceKey="liveoperator" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderBottom" runat="server">
+        </asp:ContentPlaceHolder>
+        <!--[if lt IE 10]>
+            <script type="text/javascript" src="js/fix/PIE.js"></script>
+        <![endif]-->
+        <%= JsBottom %>
+        <div id="vk" runat="server">
+            <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+            <script type="text/javascript">
+                try {
+                    VK.init(function() {
+                        setInterval(function() {
+                            VK.callMethod("resizeWindow", 827, $("body").height() < 680 ? 700 : $("body").height() + 20);
+                        }, 1000);
+                        VK.callMethod("scrollWindow", 0, 0);
+                    });
+                } catch(e) {
+                }
+
+            </script>
+        </div>
+        <%= AdvantShop.Modules.ModulesRenderer.RenderBeforeBodyEnd()%>
+    </form>
+</body>
+</html>

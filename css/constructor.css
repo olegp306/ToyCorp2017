@@ -1,0 +1,99 @@
+﻿.constructor input[type="radio"] {
+    margin:0 5px 0 0;
+}
+.constructor .title{
+    padding-left:0;
+}
+.constructor .constructor-themes,
+.constructor .constructor-colors,
+.constructor .constructor-background
+{
+    width: 155px;
+    display:table-cell;
+}
+.constructor .constructor-structure {
+    margin-bottom: 15px;
+}
+.constructor .constructor-colors,
+.constructor .constructor-background{
+	padding-left:30px;	
+}
+.constructor .constructor-themes .title, 
+.constructor .constructor-colors .title,
+.constructor .constructor-background .title,
+.constructor .constructor-structure .title{
+	font-size:12px;
+    min-width: 80px;
+}
+.constructor .constructor-structure .title,
+.constructor .constructor-themes div, 
+.constructor .constructor-colors div,
+.constructor .constructor-background div{
+	margin-bottom:5px;	
+}
+.ui-draggable > .title{
+	cursor:move;
+}
+.onthefly{
+    bottom: 5px;
+    font-size: 9px;
+    left: 10px;
+    position: absolute;
+}
+.constructor .constructor-content {
+    height: 300px;
+    overflow-y: scroll;
+    position: relative;
+    border: 1px lightgray solid; 
+}
+
+.constructor-content > div{
+    margin:5px;
+}
+
+
+
+.structure-main,
+.structure-twocolumns,
+.structure-threecolumns,
+.structure-descr {
+    display: inline-block;
+    vertical-align: top;
+}
+.structure-descr {
+    font-style: italic;
+    color: #858585;
+     width: 125px;
+}
+.structure-main input,
+.structure-twocolumns input,
+.structure-threecolumns input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+    padding: 0;
+}
+.structure-main-pic,
+.structure-twocolumns-pic,
+.structure-threecolumns-pic {
+    border: 1px #777777 solid;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 48px;
+    width: 60px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.structure-main-pic {
+    background-image: url('../images/constructor/structure-main.gif');
+}
+.structure-twocolumns-pic {
+    background-image: url('../images/constructor/structure-twocolumns.gif');
+}
+.structure-threecolumns-pic {
+    background-image: url('../images/constructor/structure-threecolumns.gif');
+}
+.structure-selected {
+    background-color: #ffce69;
+}

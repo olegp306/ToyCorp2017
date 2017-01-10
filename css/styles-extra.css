@@ -1,0 +1,152 @@
+﻿.tooltip
+{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.btn, .input-wrap, .textarea-wrap, .steps, .stroke-inside
+{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cat-banner, .steps span.first, .tabs-vr .tabs-headers div.selected
+{
+    -webkit-border-radius: 4px 0px 0px 4px;
+    -moz-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
+}
+.error-message, .oc-panel, .basket .footer div.basket-result
+{
+    -webkit-border-radius: 0px 0px 4px 4px;
+    -moz-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+/*buttons*/
+.btn
+{
+    -webkit-box-shadow: rgb(238,238,238) 0px 1px 1px;
+    -moz-box-shadow: rgb(238,238,238) 0px 1px 1px;
+    box-shadow: rgb(238,238,238) 0px 1px 1px;
+}
+.btn:active, .tooltip
+{
+    -webkit-box-shadow: rgb(221,221,221) 0px 0px 2px;
+    -moz-box-shadow: rgb(221,221,221) 0px 0px 2px;
+    box-shadow: rgb(221,221,221) 0px 0px 2px;
+}
+
+
+.btn-disabled, .btn-disabled:active, .btn-disabled:hover
+{
+    background: #818181;
+    color: #a8a8a8;
+    cursor: default;
+    -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 1px;
+    -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 1px;
+    box-shadow: rgba(0,0,0,0.2) 0px 1px 1px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl
+{
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -khtml-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr
+{
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -khtml-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl
+{
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -khtml-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br
+{
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -khtml-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+ul.container-special, ul.p-list, ul.list-stretch
+{
+    text-justify: newspaper;
+    text-align-last: justify;
+}
+ul.container-special li, ul.p-list li, ul.list-stretch li
+{
+    text-justify: newspaper;
+    text-align-last: center;
+}
+/*.tabs-hr .tabs-headers div.tab-header
+{
+    -webkit-box-shadow: #ccc 0px 0px 15px;
+    -moz-box-shadow: #ccc 0px 0px 15px;
+    box-shadow: #ccc 0px 0px 15px;
+}*/
+/*.tabs-hr .tabs-headers div span.tab-inside, .tabs-hr .tabs-headers div.selected:hover span.tab-inside
+{
+    background: #eaeaea;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#eaeaea), to(#ffffff));
+    background: -webkit-linear-gradient(#eaeaea, #ffffff);
+    background: -moz-linear-gradient(#eaeaea, #ffffff);
+    background: -ms-linear-gradient(#eaeaea, #ffffff);
+    background: -o-linear-gradient(#eaeaea, #ffffff);
+    background: linear-gradient(#eaeaea, #ffffff);
+    -pie-background: linear-gradient(#eaeaea, #ffffff);
+}*/
+/*.tabs-hr .tabs-headers div:hover span.tab-inside
+{
+    background: #eaeaea;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f9f9f9), to(#ffffff));
+    background: -webkit-linear-gradient(#f9f9f9, #ffffff);
+    background: -moz-linear-gradient(#f9f9f9, #ffffff);
+    background: -ms-linear-gradient(#f9f9f9, #ffffff);
+    background: -o-linear-gradient(#f9f9f9, #ffffff);
+    background: linear-gradient(#f9f9f9, #ffffff);
+    -pie-background: linear-gradient(#f9f9f9, #ffffff);
+}*/
+#notify div.type-error, #notify div.type-notice
+{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+::-webkit-input-placeholder
+{
+    color: #999;
+}
+:-moz-placeholder
+{
+    color: #999;
+}
+.placeholder
+{
+    color: #999;
+}
+.certificate
+{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: #ccc 0px 0px 10px;
+    -moz-box-shadow: #ccc 0px 0px 10px;
+    box-shadow: #ccc 0px 0px 10px;
+}
+.certificate .section
+{
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+.feedback-wrap {
+      -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}

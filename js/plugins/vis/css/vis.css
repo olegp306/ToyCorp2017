@@ -1,0 +1,11 @@
+﻿.vis-hidden, .vis-control-hidden {
+    display: none;
+}
+.vis-control{
+    text-decoration:none;
+    border-bottom:1px dashed;
+}
+.vis-control:hover{
+    text-decoration:none;
+    border-bottom:1px transparent dashed;
+}

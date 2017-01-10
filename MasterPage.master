@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" CodeFile="MasterPage.master.cs" Inherits="ClientPages.MasterPage" ClientIDMode="Static" EnableViewState="false" ViewStateMode="Disabled" %>
+
+<%--Do not change ClientIDMode in MasterPage file from "Static".  If you need another ClientIDMode, change it only for that control, what you need --%>
+<%@ Import Namespace="AdvantShop.Configuration" %>
+<%@ Import Namespace="AdvantShop.Design" %>
+<%@ Import Namespace="AdvantShop.Modules" %>
+<%@ Import Namespace="AdvantShop.SEO" %>
+<%@ Register TagPrefix="adv" TagName="Logo" Src="~/UserControls/LogoImage.ascx" %>
+<%@ Register TagPrefix="adv" TagName="Favicon" Src="~/UserControls/MasterPage/Favicon.ascx" %>
+<%@ Register TagPrefix="adv" TagName="StaticBlock" Src="~/UserControls/StaticBlock.ascx" %>
+<%@ Register TagPrefix="adv" TagName="LiveCounter" Src="~/UserControls/MasterPage/LiveinternetCounter.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuTop" Src="~/UserControls/MasterPage/MenuTop.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuBottom" Src="~/UserControls/MasterPage/MenuBottom.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuCatalog" Src="~/UserControls/MasterPage/MenuCatalog.ascx" %>
+<%@ Register TagPrefix="adv" TagName="DemoFeedBack" Src="~/UserControls/MasterPage/DemoFeedBack.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MenuTopMainPage" Src="~/UserControls/MasterPage/MenuTopMainPage.ascx" %>
+<%@ Register TagPrefix="adv" TagName="Search" Src="~/UserControls/MasterPage/Search.ascx" %>
+<%@ Register TagPrefix="adv" TagName="TopPanel" Src="~/UserControls/MasterPage/TopPanel.ascx" %>
+<%@ Register TagPrefix="adv" TagName="DiscountByTime" Src="~/UserControls/MasterPage/DiscountByTime.ascx" %>
+<%@ Register TagPrefix="adv" TagName="ToolbarBottom" Src="~/UserControls/MasterPage/ToolbarBottom.ascx" %>
+<%@ Register TagPrefix="adv" TagName="TrialBlock" Src="~/Admin/UserControls/MasterPage/TrialBlock.ascx" %>
+<%@ Register TagPrefix="adv" TagName="AchievementsHelp" Src="~/Admin/UserControls/Achievements/AchievementsHelp.ascx" %>
+<%@ Register TagPrefix="adv" TagName="ShoppingCart" Src="~/UserControls/MasterPage/ShoppingCart.ascx" %>
+<%@ Register TagPrefix="adv" TagName="MobileLink" Src="~/UserControls/MasterPage/MobileLink.ascx" %>
+<%@ Register TagPrefix="adv" TagName="BubbleZone" Src="~/UserControls/MasterPage/BubbleZone.ascx" %>
+<%@ Register TagPrefix="adv" TagName="TrialCounters" Src="~/UserControls/MasterPage/TrialCounters.ascx" %>
+<!DOCTYPE html>
+<html class="<%= GetCssClassForDocument() %>">
+<head>
+    <meta name="yandex-verification" content="be56115e84c8b9ce" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="AdVantShop.NET">
+    <base href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + (!Request.ApplicationPath.EndsWith("/") ? "/" : string.Empty) %>">
+    <asp:Literal ID="headMeta" runat="server" />
+    <%= SettingsSEO.CustomMetaString %>
+    <%= CssTop %>
+    <%= JsTop %>
+    <asp:Literal ID="liViewCss" runat="server" />
+    <link rel="stylesheet" href="<%= "design/" + DesignService.GetDesign("theme") + "/css/styles.css" %>" id="themecss" />
+    <link rel="stylesheet" href="<%= "design/colors/" + DesignService.GetDesign("colorscheme") + "/css/styles.css" %>" id="colorcss" />
+    <link rel="canonical" href="<%= SettingsMain.SiteUrl + Request.RawUrl %>" />
+    <adv:Favicon ID="Favicon" runat="server" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHeader" runat="server">
+    </asp:ContentPlaceHolder>
+    <%= ModulesRenderer.RenderIntoHead()%>
+</head>
+<body data-plugin="upper" data-upper-options="{scrollSpeed: 0}">
+    <%= TagManager.RenderCounter() %>
+    <%= ModulesRenderer.RenderAfterBodyStart()%>
+    <adv:LiveCounter runat="server" />
+    <adv:TrialCounters runat="server" />
+    <asp:ContentPlaceHolder ID="cphGoogleAnalytics" runat="server">
+        <%= new GoogleAnalyticsString().GetGoogleAnalyticsString()%>
+    </asp:ContentPlaceHolder>
+    <form id="form" runat="server">
+        <div class="container">
+            <header id="header">
+                <div class="headerTopSidebar">
+                    <div class="topSidebarInner">
+                        <adv:TopPanel runat="server" />
+                    </div>
+                </div>
+                <div class="headerMiddleSidebar">
+                    <div class="headerLogo">
+                        <adv:Logo ID="Logo" ImgHref='/' runat="server" />
+                    </div>
+                    <div class="headerSearch">
+                        <adv:Search runat="server" ID="searchBig" Visible="False" />
+                    </div>
+                    <div class="headerInfoLinks">
+                        <div style="display: none;">
+                            <adv:MenuTop ID="menuTop" runat="server" />
+                        </div>
+                        <adv:StaticBlock ID="StaticBlock1" runat="server" SourceKey="menutop" DisableInplaceEditor="true" />
+                    </div>
+                    <div class="headerCart">
+                        <adv:ShoppingCart runat="server" />
+                    </div>
+                </div>
+                <nav class="headerNavigation">
+                </nav>
+
+            </header>
+        </div>
+        <!--end_header-->
+        <!--main_tree-->
+        <div class="container-no-rel">
+            <adv:MenuCatalog ID="menuCatalog" runat="server" />
+        </div>
+        <div class="container">
+            <!--end_main_tree-->
+            <!--content-->
+            <adv:MenuTopMainPage ID="menuTopMainPage" runat="server" />
+            <div id="notify">
+                <%= DisplayMessages()%>
+            </div>
+            <asp:ContentPlaceHolder ID="cphMain" runat="server">
+            </asp:ContentPlaceHolder>
+            <!--footer-->
+        </div>
+        <footer class="footer">
+            <div class="birdSection">
+                <div class="container">
+                    <div class="blueLine"></div>
+                    <div class="bird">
+                        <img src="images/footer-bird.png" alt="airplane">
+                    </div>
+                    <div class="blueLine"></div>
+                </div>
+            </div>
+            <div class="footerBottomSidebar">
+                <div class="container">
+                    <div class="footerDescription">
+                        <adv:StaticBlock ID="StaticBlock5" runat="server" SourceKey="CopyrightTitle" />
+                        <% if (Page.GetType().ToString().Equals("ASP.default_aspx", StringComparison.InvariantCultureIgnoreCase)) { %>
+                            <adv:StaticBlock ID="StaticBlock4" runat="server" SourceKey="CopyrightDetails" />
+                        <% } %>
+                        <adv:StaticBlock ID="StaticBlock2" runat="server" SourceKey="Copyright" />
+                    </div>
+                    <div class="footerInfoLinks">
+                        <adv:MenuBottom ID="menuBottom" runat="server" />
+                    </div>
+                    <div class="footerContacts">
+                        <adv:StaticBlock ID="StaticBlock3" runat="server" SourceKey="RightBottom" />
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--end_footer-->
+
+        <adv:MobileLink ID="MobileLink1" runat="server" />
+        <adv:StaticBlock ID="liveoperator" runat="server" SourceKey="liveoperator" DisableInplaceEditor="true" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderBottom" runat="server">
+        </asp:ContentPlaceHolder>
+        <adv:DiscountByTime runat="server" ID="discountByTime" />
+        <adv:DemoFeedBack runat="server" ID="demoFeedBack" />
+        <adv:ToolbarBottom runat="server" ID="toolbarBottom" />
+        <adv:BubbleZone runat="server" ID="BubbleZone" />
+        <adv:TrialBlock runat="server" ID="trialBlock" />
+        <%if (IsAdmin)
+          {%>
+    <
+script src="ckeditor/ckeditor.js?version=4.4"> 
+                        </script>
+        <script src="ckeditor/configs/inline/config.js?version=4.4"></script>
+        <%} %>
+        <%= JsBottom %>
+        <adv:AchievementsHelp runat="server" AchievementsHelpType="Client" />
+        <%= ModulesRenderer.RenderBeforeBodyEnd()%>
+    </form>
+</body>
+</html>

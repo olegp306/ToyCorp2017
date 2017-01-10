@@ -1,0 +1,79 @@
+using System;
+using AdvantShop.Orders;
+using AdvantShop.Shipping;
+
+namespace UserControls.OrderConfirmation
+{
+    public partial class StepShipping : System.Web.UI.UserControl
+    {
+        public OrderConfirmationData PageData { get; set; }
+
+        public class StepShippingNextEventArgs
+        {
+            public int SelectShippingID { get; set; }
+            public string SelectShippingButtonID { get; set; }
+            public float SelectedShippingRate { get; set; }
+            public string SelectedShippingText { get; set; }
+            public ShippingOptionEx SelectedShippingExt { get; set; }
+            public int Distance { get; set; }
+        }
+
+        public event Action<object, StepShippingNextEventArgs> NextStep;
+        public void OnNextStep(StepShippingNextEventArgs arg)
+        {
+            if (NextStep != null) NextStep(this, arg);
+        }
+
+        public event Action<object, StepShippingNextEventArgs> BackStep;
+        public void OnBackStep(StepShippingNextEventArgs arg)
+        {
+            if (BackStep != null) BackStep(this, arg);
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsPostBack) return;
+            if (PageData == null) return;
+            btnNextFromShipPay.Enabled = true;
+            LoadShipping();
+        }
+
+        protected void btnBackFromShipPay_Click(object sender, EventArgs e)
+        {
+            OnBackStep(new StepShippingNextEventArgs
+                {
+                    SelectShippingButtonID = ShippingRates.SelectedID
+                });
+        }
+        protected void btnNextFromShipPay_Click(object sender, EventArgs e)
+        {
+            OnNextStep(new StepShippingNextEventArgs
+                {
+                    SelectShippingID = ShippingRates.SelectedMethodID,
+                    SelectShippingButtonID = ShippingRates.SelectedID,
+                    SelectedShippingRate = ShippingRates.SelectedRate,
+                    SelectedShippingText = ShippingRates.SelectedName,
+                    SelectedShippingExt = ShippingRates.SelectShippingOptionEx,
+                    Distance = ShippingRates.Distance
+                });
+        }
+
+        private void LoadShipping()
+        {
+            ShippingRates.Distance = PageData.Distance;
+            ShippingRates.CountryId = PageData.ShippingContact.CountryId;
+            ShippingRates.Zip = PageData.ShippingContact.Zip;
+            ShippingRates.City = PageData.ShippingContact.City;
+            ShippingRates.Region = PageData.ShippingContact.RegionName;
+            ShippingRates.SelectShippingOptionEx = PageData.ShippingOptionEx;
+            ShippingRates.ShoppingCart = ShoppingCartService.CurrentShoppingCart;
+            ShippingRates.Distance = PageData.Distance;
+            ShippingRates.LoadMethods(PageData.SelectShippingButtonId);
+            btnNextFromShipPay.Enabled &= ShippingRates.ShippingRates.Count > 0;
+        }
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            btnNextFromShipPay.Visible = ShippingRates.SelectedID != string.Empty;
+        }
+    }
+}

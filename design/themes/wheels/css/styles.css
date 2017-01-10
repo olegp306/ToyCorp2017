@@ -1,0 +1,16 @@
+﻿body{
+	background:transparent url('../images/footer.png') no-repeat scroll center bottom;
+}
+#theme-container{
+	background:transparent url('../images/bg.png') no-repeat scroll center top;
+	height:656px;
+}
+.shadow-split{
+	background:transparent url('../images/shadown.png') no-repeat scroll center top;
+	border-color:#b7b7b7;
+	height:56px;
+}
+.footer {
+	margin-bottom:165px;
+	border-bottom:3px #EBEEF1 solid;
+}

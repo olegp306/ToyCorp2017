@@ -1,0 +1,42 @@
+﻿body{
+	background:transparent url('../images/footer.png') no-repeat scroll center bottom;
+}
+#theme-container{
+	background:transparent url('../images/bg.jpg') repeat-x scroll left top;
+	height:625px;
+}
+.container #header{
+	background:transparent url('../images/under-menu.png') no-repeat scroll center bottom;
+	width:958px;
+	position:relative;
+	left:-9px;
+}
+.pnlAdmin {
+    right: 9px;
+}
+.logo-cell {
+    padding-left: 9px;
+} 
+.contact-cell {
+    padding-right: 9px;
+}
+.shadow-split {
+	height: 74px;
+	background: transparent url('../images/shadow.png') no-repeat scroll center top;
+	border:0px;
+	width:953px;
+	left:-9px;
+	position:relative;
+}
+.container > .footer{
+	padding-bottom:85px;
+}
+.theme-left{
+	width:140px;
+	height:158px;
+	background:transparent url('../images/bbg-branch.png') no-repeat scroll left top;
+	left:50%;
+	margin-left:-550px;
+	top:100px;
+}
+

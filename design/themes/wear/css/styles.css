@@ -1,0 +1,15 @@
+﻿body{
+	background:transparent url('../images/footer.png') no-repeat scroll center bottom;
+}
+#theme-container{
+	background:transparent url('../images/bg.jpg') no-repeat scroll center top;
+	height:792px;
+}
+.shadow-split{
+	background:transparent url('../images/shadown.png') repeat-x scroll left top;
+	height:60px;
+	border:0px;
+}
+.container > .footer{
+	height:480px;
+}

@@ -1,0 +1,13 @@
+﻿.wishlist-link {
+    display: inline-block;
+    min-height: 14px;
+    line-height: 14px;
+}
+
+    .wishlist-link:before {
+        content: "❤";
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 9px;
+        color: #000;
+    }

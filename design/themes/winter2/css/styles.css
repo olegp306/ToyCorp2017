@@ -1,0 +1,39 @@
+﻿body{
+	background:transparent url('../images/footer.png') no-repeat scroll center bottom;
+}
+#theme-container{
+	position:absolute;
+	left:0px;
+	right:0px;
+	top:0px;
+	background:transparent url('../images/bg.jpg') no-repeat scroll center top;
+	height:625px;
+	z-index:0;
+}
+.container #header{
+	background:transparent url('../images/under-menu.png') no-repeat scroll center bottom;
+	width:958px;
+	position:relative;
+	left:-9px;
+}
+.pnlAdmin {
+    right: 9px;
+}
+.logo-cell {
+    padding-left: 9px;
+} 
+.contact-cell {
+    padding-right: 9px;
+}
+.nivo-controlNav{
+	background:transparent none;
+}
+.shadow-split {
+	height: 55px;
+	background: transparent url('../images/shadow.png') no-repeat scroll center top;
+	border-color: #e3f2ff;
+}
+.container > .footer{
+	padding-bottom:65px;
+}
+

@@ -1,0 +1,29 @@
+﻿body{
+	background:transparent url('../images/footer.png') no-repeat scroll center bottom;
+}
+#theme-container{
+	background:transparent url('../images/bg.png') repeat-x scroll center 25px;
+	height:792px;
+}
+.shadow-split{
+	background:transparent url('../images/shadown.jpg') no-repeat scroll left top;
+	height:85px;
+	border:0px;
+}
+.theme-left{
+	background:transparent url('../images/left.png') no-repeat scroll left top;
+	width:201px;
+	height:371px;
+	top:215px;
+	margin-left:-530px;
+}
+.theme-right{
+	background:transparent url('../images/right.png') no-repeat scroll left top;
+	width:145px;
+	height:383px;
+	top:220px;
+	margin-left:415px;
+}
+.container > .footer{
+	height:480px;
+}

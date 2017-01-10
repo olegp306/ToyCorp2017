@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="SMS client" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="SMS client/AbstractTypes" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="SMS client" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web-сервис для клиента SMS</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="SMS client">
+      <s:element name="StartSessionUTC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Local" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSessionUTCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartSessionUTCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Gmt" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartSessionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Group" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelMessageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartChanges" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadInResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMessageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MessageID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadResponseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadResponseResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Encoded" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="dton" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="dnpi" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="ston" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="snpi" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeOff" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoRequest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMessageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountParamsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseSessionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="List">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveMessagesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMessageD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Encoded" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="dton" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="dnpi" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="ston" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="snpi" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeOff" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoRequest" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartUp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Period" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMessageDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMessageDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Cod" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="NRq" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Ton" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Npi" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Src" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Enc" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bdy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Off" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SUp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Prd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="List">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveGroupResult" type="tns:SaveGroupResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SaveGroupResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="List">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GroupSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Group" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Encoding" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Off" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Start" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Period" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfGroupSMSList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGroupSMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupSMSList" type="tns:GroupSMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupSMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="G" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="D" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="B" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="E" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GroupSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GroupSMSResult" type="tns:GroupSMSResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GroupSMSResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Group" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfCheckSMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCheckSMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CheckSMSList" type="tns:CheckSMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CheckSMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="G" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="R" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Guids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckSMSResult" type="tns:CheckSMSResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CheckSMSResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfCheckSMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoadSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChangesFrom" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Flags" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadSMSResult" type="tns:LoadSMSResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoadSMSResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfSMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMSList" type="tns:SMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="G" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="D" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="B" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="E" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="A" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="P" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="M" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="T" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="S" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ParamSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SessionId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParamSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ParamSMSResult" type="tns:ParamSMSResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ParamSMSResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rest" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddrMask" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UTC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Off" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSResult" type="tns:CheckSMSResult" />
+      <s:element name="LoadSMSResult" type="tns:LoadSMSResult" />
+      <s:element name="ParamSMSResult" type="tns:ParamSMSResult" />
+    </s:schema>
+    <s:schema targetNamespace="SMS client/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StartSessionUTCSoapIn">
+    <wsdl:part name="parameters" element="tns:StartSessionUTC" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionUTCSoapOut">
+    <wsdl:part name="parameters" element="tns:StartSessionUTCResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:StartSession" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:StartSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelGroup" />
+  </wsdl:message>
+  <wsdl:message name="CancelGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelMessage" />
+  </wsdl:message>
+  <wsdl:message name="CancelMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadInSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadIn" />
+  </wsdl:message>
+  <wsdl:message name="LoadInSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadInResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMessage" />
+  </wsdl:message>
+  <wsdl:message name="LoadMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMessage" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:AccountParams" />
+  </wsdl:message>
+  <wsdl:message name="AccountParamsSoapOut">
+    <wsdl:part name="parameters" element="tns:AccountParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseSession" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMessages" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageDSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMessageD" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageDSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMessageDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveGroup" />
+  </wsdl:message>
+  <wsdl:message name="SaveGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupSMS" />
+  </wsdl:message>
+  <wsdl:message name="GroupSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSMS" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSMS" />
+  </wsdl:message>
+  <wsdl:message name="LoadSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParamSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ParamSMS" />
+  </wsdl:message>
+  <wsdl:message name="ParamSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ParamSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestDateSoapIn">
+    <wsdl:part name="parameters" element="tns:TestDate" />
+  </wsdl:message>
+  <wsdl:message name="TestDateSoapOut">
+    <wsdl:part name="parameters" element="tns:TestDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionUTCHttpPostIn">
+    <wsdl:part name="Login" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Local" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionUTCHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionHttpPostIn">
+    <wsdl:part name="Login" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Gmt" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CancelGroupHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+    <wsdl:part name="Group" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelGroupHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CancelMessageHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+    <wsdl:part name="guid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LoadInHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+    <wsdl:part name="StartChanges" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadInHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="LoadMessageHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="LoadResponseHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+    <wsdl:part name="MessageID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadResponseHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+    <wsdl:part name="guid" type="s:string" />
+    <wsdl:part name="Destination" type="s:string" />
+    <wsdl:part name="Source" type="s:string" />
+    <wsdl:part name="Body" type="s:string" />
+    <wsdl:part name="Encoded" type="s:string" />
+    <wsdl:part name="dton" type="s:string" />
+    <wsdl:part name="dnpi" type="s:string" />
+    <wsdl:part name="ston" type="s:string" />
+    <wsdl:part name="snpi" type="s:string" />
+    <wsdl:part name="TimeOff" type="s:string" />
+    <wsdl:part name="Priority" type="s:string" />
+    <wsdl:part name="NoRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="AccountParamsHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccountParamsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageDHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+    <wsdl:part name="guid" type="s:string" />
+    <wsdl:part name="Destination" type="s:string" />
+    <wsdl:part name="Source" type="s:string" />
+    <wsdl:part name="Body" type="s:string" />
+    <wsdl:part name="Encoded" type="s:string" />
+    <wsdl:part name="dton" type="s:string" />
+    <wsdl:part name="dnpi" type="s:string" />
+    <wsdl:part name="ston" type="s:string" />
+    <wsdl:part name="snpi" type="s:string" />
+    <wsdl:part name="TimeOff" type="s:string" />
+    <wsdl:part name="Priority" type="s:string" />
+    <wsdl:part name="NoRequest" type="s:string" />
+    <wsdl:part name="StartUp" type="s:string" />
+    <wsdl:part name="Period" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveMessageDHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSHttpPostIn">
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="Guids" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:CheckSMSResult" />
+  </wsdl:message>
+  <wsdl:message name="LoadSMSHttpPostIn">
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="ChangesFrom" type="s:string" />
+    <wsdl:part name="Flags" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:LoadSMSResult" />
+  </wsdl:message>
+  <wsdl:message name="ParamSMSHttpPostIn">
+    <wsdl:part name="SessionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ParamSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:ParamSMSResult" />
+  </wsdl:message>
+  <wsdl:message name="TestDateHttpPostIn">
+    <wsdl:part name="Off" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoHttpPostIn" />
+  <wsdl:message name="GetInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WSSMSoap">
+    <wsdl:operation name="StartSessionUTC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Открыть сессию в UTC. Возвращает 64-битный код сессии либо ошибки (&lt;0), через пробел - разницу в секундах (Local - UTC)</wsdl:documentation>
+      <wsdl:input message="tns:StartSessionUTCSoapIn" />
+      <wsdl:output message="tns:StartSessionUTCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Открыть сессию. Возвращает код для работы с другими методами или код ошибки (&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:StartSessionSoapIn" />
+      <wsdl:output message="tns:StartSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отменить доставку группы. Возвращается предполагаемое количество &gt;0 отмененных sms либо стандартный код ошибки. 0 означает невозможность отмены либо отсутствие sms.</wsdl:documentation>
+      <wsdl:input message="tns:CancelGroupSoapIn" />
+      <wsdl:output message="tns:CancelGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отменить доставку сообщения. Возвращается предполагаемое количество &gt;0 отмененных sms либо стандартный код ошибки. 0 означает невозможность отмены либо отсутствие sms.</wsdl:documentation>
+      <wsdl:input message="tns:CancelMessageSoapIn" />
+      <wsdl:output message="tns:CancelMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выдает с указанного момента пакет входящих сообщений, либо ничего, либо код ошибки (Result&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:LoadInSoapIn" />
+      <wsdl:output message="tns:LoadInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:LoadMessageSoapIn" />
+      <wsdl:output message="tns:LoadMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadResponse">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:LoadResponseSoapIn" />
+      <wsdl:output message="tns:LoadResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:SaveMessageSoapIn" />
+      <wsdl:output message="tns:SaveMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountParams">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:AccountParamsSoapIn" />
+      <wsdl:output message="tns:AccountParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Закрыть сессию. Возвращает успешный 0 либо код ошибки</wsdl:documentation>
+      <wsdl:input message="tns:CloseSessionSoapIn" />
+      <wsdl:output message="tns:CloseSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:SaveMessagesSoapIn" />
+      <wsdl:output message="tns:SaveMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessageD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:SaveMessageDSoapIn" />
+      <wsdl:output message="tns:SaveMessageDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:SaveGroupSoapIn" />
+      <wsdl:output message="tns:SaveGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отправка пакета группы сообщений. При (Group=-1) создается группа. При (Group=-2) создается равномерная группа. Если возвращается Result &gt; 0 и Group &gt;=0, то принято хотя бы одно сообщение и в каждой строке List в поле R код состояния (&gt;0) либо код ошибки (&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:GroupSMSSoapIn" />
+      <wsdl:output message="tns:GroupSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Проверка пакета сообщений. Если возвращается Result &gt; 0, то в списке List для каждого сообщения возвращает состояние (R&gt;0), либо код ошибки (R&lt;=0)</wsdl:documentation>
+      <wsdl:input message="tns:CheckSMSSoapIn" />
+      <wsdl:output message="tns:CheckSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выдача с указанного момента ChangesFrom пакета входящих sms (при Flags = 0) либо склеенных сообщений (при Flags = 1), либо (Result=0), либо код ошибки (Result&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:LoadSMSSoapIn" />
+      <wsdl:output message="tns:LoadSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParamSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выдача параметров либо кода ошибки (Result&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:ParamSMSSoapIn" />
+      <wsdl:output message="tns:ParamSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestDate">
+      <wsdl:input message="tns:TestDateSoapIn" />
+      <wsdl:output message="tns:TestDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <wsdl:input message="tns:GetInfoSoapIn" />
+      <wsdl:output message="tns:GetInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSSMHttpPost">
+    <wsdl:operation name="StartSessionUTC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Открыть сессию в UTC. Возвращает 64-битный код сессии либо ошибки (&lt;0), через пробел - разницу в секундах (Local - UTC)</wsdl:documentation>
+      <wsdl:input message="tns:StartSessionUTCHttpPostIn" />
+      <wsdl:output message="tns:StartSessionUTCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Открыть сессию. Возвращает код для работы с другими методами или код ошибки (&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:StartSessionHttpPostIn" />
+      <wsdl:output message="tns:StartSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отменить доставку группы. Возвращается предполагаемое количество &gt;0 отмененных sms либо стандартный код ошибки. 0 означает невозможность отмены либо отсутствие sms.</wsdl:documentation>
+      <wsdl:input message="tns:CancelGroupHttpPostIn" />
+      <wsdl:output message="tns:CancelGroupHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отменить доставку сообщения. Возвращается предполагаемое количество &gt;0 отмененных sms либо стандартный код ошибки. 0 означает невозможность отмены либо отсутствие sms.</wsdl:documentation>
+      <wsdl:input message="tns:CancelMessageHttpPostIn" />
+      <wsdl:output message="tns:CancelMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выдает с указанного момента пакет входящих сообщений, либо ничего, либо код ошибки (Result&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:LoadInHttpPostIn" />
+      <wsdl:output message="tns:LoadInHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:LoadMessageHttpPostIn" />
+      <wsdl:output message="tns:LoadMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadResponse">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:LoadResponseHttpPostIn" />
+      <wsdl:output message="tns:LoadResponseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:SaveMessageHttpPostIn" />
+      <wsdl:output message="tns:SaveMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountParams">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:AccountParamsHttpPostIn" />
+      <wsdl:output message="tns:AccountParamsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Закрыть сессию. Возвращает успешный 0 либо код ошибки</wsdl:documentation>
+      <wsdl:input message="tns:CloseSessionHttpPostIn" />
+      <wsdl:output message="tns:CloseSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessageD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Устаревшее!</wsdl:documentation>
+      <wsdl:input message="tns:SaveMessageDHttpPostIn" />
+      <wsdl:output message="tns:SaveMessageDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Проверка пакета сообщений. Если возвращается Result &gt; 0, то в списке List для каждого сообщения возвращает состояние (R&gt;0), либо код ошибки (R&lt;=0)</wsdl:documentation>
+      <wsdl:input message="tns:CheckSMSHttpPostIn" />
+      <wsdl:output message="tns:CheckSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выдача с указанного момента ChangesFrom пакета входящих sms (при Flags = 0) либо склеенных сообщений (при Flags = 1), либо (Result=0), либо код ошибки (Result&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:LoadSMSHttpPostIn" />
+      <wsdl:output message="tns:LoadSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParamSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выдача параметров либо кода ошибки (Result&lt;0)</wsdl:documentation>
+      <wsdl:input message="tns:ParamSMSHttpPostIn" />
+      <wsdl:output message="tns:ParamSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestDate">
+      <wsdl:input message="tns:TestDateHttpPostIn" />
+      <wsdl:output message="tns:TestDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <wsdl:input message="tns:GetInfoHttpPostIn" />
+      <wsdl:output message="tns:GetInfoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSSMSoap" type="tns:WSSMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSessionUTC">
+      <soap:operation soapAction="SMS client/StartSessionUTC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSession">
+      <soap:operation soapAction="SMS client/StartSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelGroup">
+      <soap:operation soapAction="SMS client/CancelGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMessage">
+      <soap:operation soapAction="SMS client/CancelMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadIn">
+      <soap:operation soapAction="SMS client/LoadIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessage">
+      <soap:operation soapAction="SMS client/LoadMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadResponse">
+      <soap:operation soapAction="SMS client/LoadResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <soap:operation soapAction="SMS client/SaveMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountParams">
+      <soap:operation soapAction="SMS client/AccountParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap:operation soapAction="SMS client/CloseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessages">
+      <soap:operation soapAction="SMS client/SaveMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessageD">
+      <soap:operation soapAction="SMS client/SaveMessageD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroup">
+      <soap:operation soapAction="SMS client/SaveGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupSMS">
+      <soap:operation soapAction="SMS client/GroupSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMS">
+      <soap:operation soapAction="SMS client/CheckSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSMS">
+      <soap:operation soapAction="SMS client/LoadSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParamSMS">
+      <soap:operation soapAction="SMS client/ParamSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestDate">
+      <soap:operation soapAction="SMS client/TestDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <soap:operation soapAction="SMS client/GetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSMSoap12" type="tns:WSSMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSessionUTC">
+      <soap12:operation soapAction="SMS client/StartSessionUTC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSession">
+      <soap12:operation soapAction="SMS client/StartSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelGroup">
+      <soap12:operation soapAction="SMS client/CancelGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMessage">
+      <soap12:operation soapAction="SMS client/CancelMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadIn">
+      <soap12:operation soapAction="SMS client/LoadIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessage">
+      <soap12:operation soapAction="SMS client/LoadMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadResponse">
+      <soap12:operation soapAction="SMS client/LoadResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <soap12:operation soapAction="SMS client/SaveMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountParams">
+      <soap12:operation soapAction="SMS client/AccountParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap12:operation soapAction="SMS client/CloseSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessages">
+      <soap12:operation soapAction="SMS client/SaveMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessageD">
+      <soap12:operation soapAction="SMS client/SaveMessageD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroup">
+      <soap12:operation soapAction="SMS client/SaveGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupSMS">
+      <soap12:operation soapAction="SMS client/GroupSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMS">
+      <soap12:operation soapAction="SMS client/CheckSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSMS">
+      <soap12:operation soapAction="SMS client/LoadSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParamSMS">
+      <soap12:operation soapAction="SMS client/ParamSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestDate">
+      <soap12:operation soapAction="SMS client/TestDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <soap12:operation soapAction="SMS client/GetInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSMHttpPost" type="tns:WSSMHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="StartSessionUTC">
+      <http:operation location="/StartSessionUTC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSession">
+      <http:operation location="/StartSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelGroup">
+      <http:operation location="/CancelGroup" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMessage">
+      <http:operation location="/CancelMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadIn">
+      <http:operation location="/LoadIn" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessage">
+      <http:operation location="/LoadMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadResponse">
+      <http:operation location="/LoadResponse" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessage">
+      <http:operation location="/SaveMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountParams">
+      <http:operation location="/AccountParams" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <http:operation location="/CloseSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessageD">
+      <http:operation location="/SaveMessageD" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMS">
+      <http:operation location="/CheckSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSMS">
+      <http:operation location="/LoadSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParamSMS">
+      <http:operation location="/ParamSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestDate">
+      <http:operation location="/TestDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <http:operation location="/GetInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSSM">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web-сервис для клиента SMS</wsdl:documentation>
+    <wsdl:port name="WSSMSoap" binding="tns:WSSMSoap">
+      <soap:address location="https://sms4b.ru/webservices/sms.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSMSoap12" binding="tns:WSSMSoap12">
+      <soap12:address location="https://sms4b.ru/webservices/sms.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSMHttpPost" binding="tns:WSSMHttpPost">
+      <http:address location="https://sms4b.ru/webservices/sms.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,135 @@
+﻿body
+{
+    color: #575757;
+}
+.header-contact .phone
+{
+    font-size: 18px;
+    color: #0079c1;
+}
+.tree
+{
+    background: #3c5a9a;
+}
+.tree .tree-item .tree-submenu, .tree .tree-item-selected .tree-submenu
+{
+    background: #4364a7;
+}
+.tree .tree-item:hover
+{
+    background: #5678be;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#5678be), to(#4464a8));
+    background: -webkit-linear-gradient(#5678be, #4464a8);
+    background: -moz-linear-gradient(#5678be, #4464a8);
+    background: -ms-linear-gradient(#5678be, #4464a8);
+    background: -o-linear-gradient(#5678be, #4464a8);
+    background: linear-gradient(#5678be, #4464a8);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5678be', endColorstr='#4464a8',GradientType=0 );
+}
+.tree-item-selected
+{
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff533f), to(#f0361f));
+    background: -webkit-linear-gradient(#ff533f, #f0361f);
+    background: -moz-linear-gradient(#ff533f, #f0361f);
+    background: -ms-linear-gradient(#ff533f, #f0361f);
+    background: -o-linear-gradient(#ff533f, #f0361f);
+    background: linear-gradient(#ff533f, #f0361f);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff533f', endColorstr='#f0361f',GradientType=0 );
+    margin: 0px;
+}
+.main-menu a
+{
+    color: #3561a0;
+}
+.main-menu a:hover
+{
+    color: #3561a0;
+    text-decoration: underline;
+}
+a.btn-search
+{
+    background: url('../images/fb/search.png') no-repeat center center;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+a.btn-search, a.btn-search:hover, a.btn-search:active
+{
+    background-position: center center;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.btn-add-icon
+{
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff533f), to(#f0361f));
+    background: -webkit-linear-gradient(#ff533f, #f0361f);
+    background: -moz-linear-gradient(#ff533f, #f0361f);
+    background: -ms-linear-gradient(#ff533f, #f0361f);
+    background: -o-linear-gradient(#ff533f, #f0361f);
+    background: linear-gradient(#ff533f, #f0361f);
+    -pie-background: linear-gradient(#ff533f, #f0361f);
+    -webkit-box-shadow: rgb(0,0,0) 0px 1px 1px;
+    -moz-box-shadow: rgb(0,0,0) 0px 1px 1px;
+    box-shadow: rgb(0,0,0) 0px 1px 1px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+    zoom: 1;
+    display: inline-block;
+    vertical-align: top;
+}
+.btn-add-icon:hover
+{
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f0361f), to(#ff533f));
+    background: -webkit-linear-gradient(#f0361f, #ff533f);
+    background: -moz-linear-gradient(#f0361f, #ff533f);
+    background: -ms-linear-gradient(#f0361f, #ff533f);
+    background: -o-linear-gradient(#f0361f, #ff533f);
+    background: linear-gradient(#f0361f, #ff533f);
+    -pie-background: linear-gradient(#f0361f, #ff533f);
+}
+.btn-add-icon a.btn-add
+{
+    color: #757575;
+    border: 0;
+    background: transparent none;
+    -pie-background: transparent none;
+    background: url('../images/fb/cart.gif') no-repeat scroll 5px 5px;
+    color: #fff;
+    padding: 0 10px 0 22px;
+    font-weight: normal;
+}
+a.btn-buy:link, a.btn-buy:visited
+{
+    background: #e2e7ed; /* Old browsers */
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e2e7ed), to(#cdd0d5));
+    background: -webkit-linear-gradient(#e2e7ed, #cdd0d5);
+    background: -moz-linear-gradient(#e2e7ed, #cdd0d5);
+    background: -ms-linear-gradient(#e2e7ed, #cdd0d5);
+    background: -o-linear-gradient(#e2e7ed, #cdd0d5);
+    background: linear-gradient(#e2e7ed, #cdd0d5);
+    -pie-background: linear-gradient(#e2e7ed, #cdd0d5);
+    color: #2b587a;
+    font-weight: normal;
+}
+a.btn-buy:hover, a.btn-buy:active
+{
+    background: #e2e7ed; /* Old browsers */
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#cdd0d5), to(#e2e7ed));
+    background: -webkit-linear-gradient(#cdd0d5, #e2e7ed);
+    background: -moz-linear-gradient(#cdd0d5, #e2e7ed);
+    background: -ms-linear-gradient(#cdd0d5, #e2e7ed);
+    background: -o-linear-gradient(#cdd0d5, #e2e7ed);
+    -pie-background: linear-gradient(#cdd0d5, #e2e7ed);
+    color: #2b587a;
+}
+
+.btn-action:link
+{
+    font-weight: normal;
+}

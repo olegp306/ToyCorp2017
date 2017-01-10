@@ -1,0 +1,40 @@
+﻿body
+{
+    background: transparent url('../images/footer.jpg') no-repeat scroll center bottom;
+}
+#theme-container
+{
+    background: transparent url('../images/main.jpg') no-repeat scroll center top;
+    height: 612px;
+}
+
+.shadow-split
+{
+    background: transparent url('../images/split.png') no-repeat scroll center top;
+    border-color: transparent;
+    height: 135px;
+}
+.container > .footer
+{
+    padding-bottom: 225px;
+}
+a
+{
+    color: #3D597A;
+}
+a:hover
+{
+    color: #3D597A;
+}
+.main-menu a
+{
+    color: #fff !important;
+}
+.main-menu a:hover
+{
+    color: #3D597A !important;
+}
+.header-contact .phone, #header .phone, #header .header-message a
+{
+    color: #fff;
+}

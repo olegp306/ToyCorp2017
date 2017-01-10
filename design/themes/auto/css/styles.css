@@ -1,0 +1,26 @@
+﻿body{
+	background:transparent url('../images/footer.jpg') repeat-x scroll left bottom;
+}
+#theme-container{
+	background:transparent url('../images/grid.jpg') repeat-x scroll left top;
+	height:637px;
+}
+.theme-left{
+	background:transparent url('../images/left.png') no-repeat scroll left top;
+	top: 202px;
+	left:50%;
+	margin-left:-660px;
+	width:190px;
+	height:344px;
+}
+.theme-right{
+	background:transparent url('../images/right.png') no-repeat scroll 470px top;
+	top: 208px;
+	left:50%;
+    right: 0;
+	height:378px;
+}
+.shadow-split{
+	background:transparent url('../images/shadow.png') no-repeat scroll center top;
+	border:0px;
+}

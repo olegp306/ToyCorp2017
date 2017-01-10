@@ -1,0 +1,32 @@
+﻿#notify {
+    position: relative;
+    display: none;
+    padding-bottom: 3px;
+}
+#notify  .notify-item {
+    padding: 5px;
+    border: 1px #bababa solid;
+    padding: 15px;
+    font-size: 14px;
+    position: relative;
+    margin-top: 3px;
+    display: none;
+}
+#notify  div.type-error {
+    background: #f7e7e6;
+	color: #b1140c;
+
+}
+#notify  div.type-notice {
+    background-color: #9fe092;
+    color: #3C3C43;  
+}
+#notify .close {
+    position: absolute;
+    background: url('../../images/notify/close.png') no-repeat;
+    width: 17px;
+    height: 17px;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
