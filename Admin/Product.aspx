@@ -374,6 +374,23 @@
                                                             <asp:CheckBox ID="chkEnabled" runat="server" Checked="true" CssClass="checkly-align" />
                                                         </td>
                                                     </tr>
+                                                    <%--ручная популярность--%>
+                                                    <tr class="rowsPost row-interactive">
+                                                        <td onclick="focusoninput(this)">
+                                                            <%=Resources.Resource.Admin_m_Product_ProductRecomendedManual%>
+                                                        </td>
+                                                        <td style="vertical-align: middle; height: 29px">
+                                                            <asp:TextBox ID="txtRecomendedManual" runat="server" Width="50px" Text="0" CssClass="toencode niceTextBox shortTextBoxClass" />
+                                                          <%--  <%=Resources.Resource.Admin_Product_Kg%>--%>
+                                                            <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtRecomendedManual"
+                                                                ValidationGroup="1" Display="Dynamic" EnableClientScript="false" ErrorMessage='<%$ Resources:Resource,Admin_Product_EnterValidNumber %>'
+                                                                MaximumValue="2000000" MinimumValue="0" Type="Integer"> </asp:RangeValidator>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtRecomendedManual"
+                                                                ValidationGroup="1" Display="Dynamic" EnableClientScript="false" ErrorMessage='<%$ Resources:Resource,Admin_Product_EnterValidNumber %>'> </asp:RequiredFieldValidator>
+                                                        </td>
+                                                    </tr>
+
+
                                                     <tr>
                                                         <td class="formheader" colspan="2">
                                                             <h2><%=Resources.Resource.Admin_Product_Additional%></h2>

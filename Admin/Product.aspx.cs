@@ -202,6 +202,7 @@ namespace Admin
                 chkEnabled.Checked = product.Enabled;
                 chkAllowPreOrder.Checked = product.AllowPreOrder;
                 txtWeight.Text = product.Weight.ToString();
+                txtRecomendedManual.Text = product.RecomendedManual.ToString();
 
                 var temp = product.Size.Split('|');
                 if (temp.Length == 3)
@@ -535,6 +536,7 @@ namespace Admin
                                        : fckDescription.Text;
 
             _product.Weight = txtWeight.Text.TryParseFloat();
+            _product.RecomendedManual = txtRecomendedManual.Text.TryParseInt();
             _product.Size = txtSizeLength.Text + "|" + txtSizeWidth.Text + "|" + txtSizeHeight.Text;
             _product.Discount = txtDiscount.Text.TryParseFloat();
             _product.Enabled = chkEnabled.Checked;
