@@ -58,7 +58,7 @@ namespace AdvantShop.Catalog
 
         public bool ManufacturerWarranty { get; set; }
 
-        public int RecomendedManual { get; set; }
+        public int PopularityManually { get; set; }
 
         //public bool CanOrderByRequest
         //{

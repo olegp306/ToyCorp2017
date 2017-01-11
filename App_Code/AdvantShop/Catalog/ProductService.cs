@@ -339,7 +339,7 @@ namespace AdvantShop.Catalog
                 new SqlParameter("@Adult", product.Adult),
                 new SqlParameter("@ManufacturerWarranty", product.ManufacturerWarranty),
                 new SqlParameter("@AddManually", product.AddManually),
-                new SqlParameter("@RecomendedManual", product.RecomendedManual)
+                new SqlParameter("@RecomendedManual", product.PopularityManually)
                 ));
             if (product.ProductId == 0)
                 return 0;
@@ -440,7 +440,7 @@ namespace AdvantShop.Catalog
                 new SqlParameter("@Adult", product.Adult),
                 new SqlParameter("@ManufacturerWarranty", product.ManufacturerWarranty),
                 new SqlParameter("@AddManually", product.AddManually),
-                new SqlParameter("@RecomendedManual", product.RecomendedManual)
+                new SqlParameter("@RecomendedManual", product.PopularityManually)
 
                 );
 
@@ -534,7 +534,7 @@ namespace AdvantShop.Catalog
                 Adult = SQLDataHelper.GetBoolean(reader, "Adult"),
                 ManufacturerWarranty = SQLDataHelper.GetBoolean(reader, "ManufacturerWarranty"),
                 AddManually = SQLDataHelper.GetBoolean(reader, "AddManually"),
-                RecomendedManual= SQLDataHelper.GetInt(reader, "RecomendedManual"),
+                PopularityManually = SQLDataHelper.GetInt(reader, "PopularityManually"),
             };
         }
 

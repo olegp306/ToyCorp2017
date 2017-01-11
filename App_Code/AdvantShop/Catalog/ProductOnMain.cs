@@ -100,7 +100,7 @@ namespace AdvantShop.Catalog
                                               new SqlParameter("@Type", PhotoType.Product.ToString()),
                                               new SqlParameter("@ShoppingCartType", (int)ShoppingCartType.Compare));
         }
-        public static DataTable GetRecomendedManualProduct(int count)
+        public static DataTable GetPopularityManuallyProduct(int count)
         {
             string sqlCmd = "select Top(@count) Product.ProductId, Product.ArtNo, Name, BriefDescription, " +
                             "(CASE WHEN Offer.ColorID is not null THEN (Select TOP(1) PhotoId From [Catalog].[Photo] WHERE ([Photo].ColorID = Offer.ColorID  or [Photo].ColorID is null) and [Product].[ProductID] = [Photo].[ObjId] and Type=@Type order by main desc, PhotoSortOrder) ELSE (Select TOP(1) PhotoId From [Catalog].[Photo] WHERE [Product].[ProductID] = [Photo].[ObjId] and Type=@Type order by main desc, PhotoSortOrder) END)  AS PhotoId, " +
@@ -141,7 +141,7 @@ namespace AdvantShop.Catalog
             //        throw new NotImplementedException();
             //}
 
-            sqlCmd = string.Format(sqlCmd, "[RecomendedManual] DESC");
+            sqlCmd = string.Format(sqlCmd, "[PopularityManually] DESC");
 
             return SQLDataAccess.ExecuteTable(sqlCmd, CommandType.Text,
                                               new SqlParameter { ParameterName = "@count", Value = count },
