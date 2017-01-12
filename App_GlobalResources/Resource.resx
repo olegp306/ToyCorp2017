@@ -11917,7 +11917,7 @@
     <value>Отображать остаток товара</value>
   </data>
   <data name="Admin_CommonSettings_ShowBlockStockAvailability" xml:space="preserve">
-    <value>Отображать БЛОК остаток товара</value>
+    <value>Отображать БЛОК "в наличие" </value>
   </data>
   <data name="Admin_ShippingMethod_ShippingByRangeWeightAndDistance_BasePrice" xml:space="preserve">
     <value>Базовая стоимость</value>
