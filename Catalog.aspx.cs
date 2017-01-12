@@ -319,10 +319,10 @@ ON PopTable.ProductId=[Catalog].[Product].[ProductId]");
                 //    break;
 
                 case ESortOrder.AscByPopularity:
-                    _paging.OrderBy("PopularityManually as PopularitySort ASC");
+                    _paging.OrderBy("PopularityManually * 100 + Popularity as PopularitySort ASC");
                     break;
                 case ESortOrder.DescByPopularity:
-                    _paging.OrderBy("PopularityManually as PopularitySort DESC");
+                    _paging.OrderBy("PopularityManually * 100 + Popularity as PopularitySort DESC");
                     break;
             }
 
