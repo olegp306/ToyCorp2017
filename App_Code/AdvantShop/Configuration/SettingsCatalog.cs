@@ -275,5 +275,11 @@ namespace AdvantShop.Configuration
             get { return SQLDataHelper.GetBoolean(SettingProvider.Items["ShowPriceFilter"]); }
             set { SettingProvider.Items["ShowPriceFilter"] = value.ToString(); }
         }
+
+        public static bool ShowBlockStockAvailability
+        {
+            get { return SQLDataHelper.GetBoolean(SettingProvider.Items["ShowBlockStockAvailability"]); }
+            set { SettingProvider.Items["ShowBlockStockAvailability"] = value.ToString(); }
+        }
     }
 }
