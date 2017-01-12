@@ -91,10 +91,10 @@
                 <div class="help-icon js-help-icon"></div>
                 <article class="bubble help js-help">
                     <header class="help-header">
-                        Отображать блок наличие товара
+                        Отображать блок наличии товара
                     </header>
                     <div class="help-content">
-                        Отображать или нет БЛОК "наличие"  <br />
+                        Отображать или нет БЛОК "наличии"  <br />
                         <br />
                         
                     </div>
