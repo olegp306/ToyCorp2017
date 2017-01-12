@@ -440,7 +440,7 @@ namespace AdvantShop.Catalog
                 new SqlParameter("@Adult", product.Adult),
                 new SqlParameter("@ManufacturerWarranty", product.ManufacturerWarranty),
                 new SqlParameter("@AddManually", product.AddManually),
-                new SqlParameter("@RecomendedManual", product.PopularityManually)
+                new SqlParameter("@PopularityManually", product.PopularityManually)
 
                 );
 
