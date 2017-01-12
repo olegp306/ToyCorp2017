@@ -83,7 +83,7 @@
     </tr>
     <tr class="rowsPost row-interactive">
         <td>
-            <label class="form-lbl" for="<%= cbShowBlockStockAvailability.ClientID %>"><%= Resources.Resource.Admin_CommonSettings_ShowStockAvailability%></label>
+            <label class="form-lbl" for="<%= cbShowBlockStockAvailability.ClientID %>"><%= Resources.Resource.Admin_CommonSettings_ShowBlockStockAvailability%></label>
         </td>
         <td>
             <asp:CheckBox ID="cbShowBlockStockAvailability" runat="server" CssClass="checkly-align" />
