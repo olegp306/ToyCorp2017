@@ -95,6 +95,7 @@ ON PopTable.ProductId=[Catalog].[Product].[ProductId]");
                         "ShoppingCartItemId",
                         "UrlPath",
                         "Offer.ColorID",
+                        "PopularityManually",
                         "DateAdded",
                         "ISNULL (Popularity , 0)as Popularity"
                     );
@@ -242,7 +243,7 @@ ON PopTable.ProductId=[Catalog].[Product].[ProductId]");
             }
             newMetaInfo.Title = newTitle + " купить в интернет-магазине Корпорация Игрушек";
             newMetaInfo.MetaDescription = "Интернет-магазин Корпорация Игрушек представляет: " + newTitle.ToString() + " и еще более 5,5 тысяч видов товаров по оптовым ценам. Порадуйте своего ребенка!";
-            newMetaInfo.MetaKeywords = (polTitle != "" || vozrastTitle != "") ? "Игрушки " + newTitle.ToString() : newTitle.ToString() ;
+            newMetaInfo.MetaKeywords = (polTitle != "" || vozrastTitle != "") ? "Игрушки " + newTitle.ToString() : newTitle.ToString();
 
             var metaInfo = SetMeta(newMetaInfo, Category.Name, page: paging.CurrentPage);
             //var metaInfo = SetMeta(Category.Meta, Category.Name, page: paging.CurrentPage);
@@ -310,11 +311,18 @@ ON PopTable.ProductId=[Catalog].[Product].[ProductId]");
                 case ESortOrder.DescByAddingDate:
                     _paging.OrderBy("DateAdded as DateAddedSort DESC");
                     break;
+                //case ESortOrder.AscByPopularity:
+                //    _paging.OrderBy("Popularity as PopularitySort ASC");
+                //    break;
+                //case ESortOrder.DescByPopularity:
+                //    _paging.OrderBy("Popularity as PopularitySort DESC");
+                //    break;
+
                 case ESortOrder.AscByPopularity:
-                    _paging.OrderBy("Popularity as PopularitySort ASC");
+                    _paging.OrderBy("PopularityManually as PopularitySort ASC");
                     break;
                 case ESortOrder.DescByPopularity:
-                    _paging.OrderBy("Popularity as PopularitySort DESC");
+                    _paging.OrderBy("PopularityManually as PopularitySort DESC");
                     break;
             }
 
@@ -565,6 +573,7 @@ ON PopTable.ProductId=[Catalog].[Product].[ProductId]");
             }
 
             var data = _paging.PageItems;
+           
             productView.DataSource = data;
             productView.DataBind();
 
