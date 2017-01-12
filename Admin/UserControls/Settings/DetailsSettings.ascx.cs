@@ -22,6 +22,7 @@ namespace Admin.UserControls.Settings
             chkDisplayWeight.Checked = SettingsCatalog.DisplayWeight;
             chkDisplayDimensions.Checked = SettingsCatalog.DisplayDimensions;
             cbShowStockAvailability.Checked = SettingsCatalog.ShowStockAvailability;
+            cbShowBlockStockAvailability.Checked = SettingsCatalog.ShowBlockStockAvailability;
 
             ckbModerateReviews.Checked = SettingsCatalog.ModerateReviews;
             chkAllowReviews.Checked = SettingsCatalog.AllowReviews;
@@ -44,6 +45,7 @@ namespace Admin.UserControls.Settings
             SettingsCatalog.DisplayWeight = chkDisplayWeight.Checked;
             SettingsCatalog.DisplayDimensions = chkDisplayDimensions.Checked;
             SettingsCatalog.ShowStockAvailability = cbShowStockAvailability.Checked;
+            SettingsCatalog.ShowBlockStockAvailability = cbShowBlockStockAvailability.Checked;
 
             SettingsCatalog.CompressBigImage = chkCompressBigImage.Checked;
             SettingsCatalog.ModerateReviews = ckbModerateReviews.Checked;

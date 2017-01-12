@@ -81,6 +81,29 @@
             </div>
         </td>
     </tr>
+    <tr class="rowsPost row-interactive">
+        <td>
+            <label class="form-lbl" for="<%= cbShowBlockStockAvailability.ClientID %>"><%= Resources.Resource.Admin_CommonSettings_ShowStockAvailability%></label>
+        </td>
+        <td>
+            <asp:CheckBox ID="cbShowBlockStockAvailability" runat="server" CssClass="checkly-align" />
+            <div data-plugin="help" class="help-block">
+                <div class="help-icon js-help-icon"></div>
+                <article class="bubble help js-help">
+                    <header class="help-header">
+                        Отображать блок наличие товара
+                    </header>
+                    <div class="help-content">
+                        Отображать или нет БЛОК "наличие"  <br />
+                        <br />
+                        
+                    </div>
+                </article>
+            </div>
+        </td>
+    </tr>
+
+
     <tr class="rowPost">
         <td colspan="2" style="height: 34px;">
             <span class="spanSettCategory spanSettCategorySub">
