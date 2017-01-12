@@ -44,17 +44,20 @@ namespace ClientPages
         private string displaySku = string.Empty;
         public string DisplaySku
         {
-            get {
+            get
+            {
                 if (displaySku.Length > 0) return displaySku;
                 var prop = PropertyService.GetPropertyValuesByProductId(ProductId).FirstOrDefault(x => x.Property.Name == "Артикул");
-                if (prop != null ) {
+                if (prop != null)
+                {
                     displaySku = prop.Value;
                 }
-                if (displaySku.Length == 0) {
+                if (displaySku.Length == 0)
+                {
                     displaySku = CurrentProduct.ArtNo;
                 }
-                return displaySku; 
-            
+                return displaySku;
+
             }
         }
 
@@ -245,19 +248,26 @@ namespace ClientPages
                 bool isMultiOffers = CurrentProduct.Offers.Count > 1;
                 bool isAvailable = CurrentOffer.Amount > 0;
                 bool isUnavalable = CurrentOffer.Amount <= 0;
+                bool showBlock = SettingsCatalog.ShowBlockStockAvailability;
 
-                lAvailiableAmount.Text = string.Format(
-                    "<div id='availability' class='{0}' {3}>{1}{2}</div>",
-                    isAvailable ? "available" : "not-available",
-                    isAvailable ? Resource.Client_Details_Available : Resource.Client_Details_NotAvailable,
-                    isAvailable && SettingsCatalog.ShowStockAvailability
-                    ? string.Format(" ({0}{1}<span {3}>{2}</span>)",
-                    CurrentOffer.Amount, CurrentProduct.Unit.IsNotEmpty() ? " " : string.Empty,
-                    CurrentProduct.Unit.IsNotEmpty() ? CurrentProduct.Unit : string.Empty,
-                    (CustomerContext.CurrentCustomer.IsAdmin || AdvantShop.Trial.TrialService.IsTrialEnabled) ? "data-inplace-update=\"amount\"" : "")
-                    : string.Empty,
-                    InplaceEditor.Offer.AttibuteAmount(CurrentOffer.OfferId, CurrentOffer.Amount));
-
+                if (showBlock)
+                {
+                    lAvailiableAmount.Text = string.Format(
+                      "<div id='availability' class='{0}' {3}>{1}{2}</div>",
+                      isAvailable ? "available" : "not-available",
+                      isAvailable ? Resource.Client_Details_Available : Resource.Client_Details_NotAvailable,
+                      isAvailable && SettingsCatalog.ShowStockAvailability
+                      ? string.Format(" ({0}{1}<span {3}>{2}</span>)",
+                      CurrentOffer.Amount, CurrentProduct.Unit.IsNotEmpty() ? " " : string.Empty,
+                      CurrentProduct.Unit.IsNotEmpty() ? CurrentProduct.Unit : string.Empty,
+                      (CustomerContext.CurrentCustomer.IsAdmin || AdvantShop.Trial.TrialService.IsTrialEnabled) ? "data-inplace-update=\"amount\"" : "")
+                      : string.Empty,
+                      InplaceEditor.Offer.AttibuteAmount(CurrentOffer.OfferId, CurrentOffer.Amount));
+                }
+                else
+                {
+                    lAvailiableAmount.Text = string.Empty;
+                }
 
                 btnOrderByRequest.Attributes["data-offerid"] = CurrentOffer.OfferId.ToString();
                 btnOrderByRequest.Attributes["data-productid"] = CurrentProduct.ProductId.ToString();
@@ -307,7 +317,7 @@ namespace ClientPages
             if (SettingsDesign.ShowShippingsMethodsInDetails != SettingsDesign.eShowShippingsInDetails.Never)
             {
                 liShipping.Text = string.Format("<div class=\"js-details-delivery\" data-value=\"{0}\"></div>",
-                    (int) SettingsDesign.ShowShippingsMethodsInDetails);
+                    (int)SettingsDesign.ShowShippingsMethodsInDetails);
             }
             else
             {
