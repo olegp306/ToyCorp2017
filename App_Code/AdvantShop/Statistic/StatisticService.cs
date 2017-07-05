@@ -72,9 +72,9 @@ namespace AdvantShop.Statistic
                 new SqlParameter("@ToDate", toDate)));
         }
 
-        public static int GetOrdersSumByDateRange(DateTime fromDate, DateTime toDate)
+        public static Int64 GetOrdersSumByDateRange(DateTime fromDate, DateTime toDate)
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT isnull(Sum([order].[sum]), 0) FROM [Order].[Order] WHERE [OrderDate] IS NOT NULL AND Convert(date, @FromDate) <= Convert(date, [OrderDate]) AND Convert(date, [OrderDate]) <=  Convert(date, @ToDate)",
                 CommandType.Text,
                 new SqlParameter("@FromDate", fromDate),
