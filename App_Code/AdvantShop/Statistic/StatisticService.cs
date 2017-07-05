@@ -63,9 +63,9 @@ namespace AdvantShop.Statistic
 
         #region Common statistic
 
-        public static int GetOrdersCountByDateRange(DateTime fromDate, DateTime toDate)
+        public static Int64 GetOrdersCountByDateRange(DateTime fromDate, DateTime toDate)
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(OrderID) FROM [Order].[Order] WHERE [OrderDate] IS NOT NULL AND Convert(date, @FromDate) <= Convert(date, [OrderDate]) AND Convert(date, [OrderDate]) <=  Convert(date, @ToDate)",
                 CommandType.Text,
                 new SqlParameter("@FromDate", fromDate),
@@ -83,35 +83,35 @@ namespace AdvantShop.Statistic
 
 
 
-        public static int GetOrdersCountByDate(DateTime date)
+        public static Int64 GetOrdersCountByDate(DateTime date)
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(OrderID) FROM [Order].[Order]  WHERE Convert(date, [OrderDate]) = Convert(date, @Date)",
                 CommandType.Text,
                 new SqlParameter("@Date", date)));
         }
 
 
-        public static int GetOrdersSumByDate(DateTime date)
+        public static Int64 GetOrdersSumByDate(DateTime date)
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT isnull(Sum([order].[sum]), 0) FROM [Order].[Order] WHERE [OrderDate] IS NOT NULL AND Convert(date, [OrderDate]) = Convert(date, @Date)",
                 CommandType.Text,
                 new SqlParameter("@Date", date)));
         }
 
 
-        public static int GetOrdersCount()
+        public static Int64 GetOrdersCount()
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(OrderID) FROM [Order].[Order]",
                 CommandType.Text));
         }
 
 
-        public static int GetProductsCount()
+        public static Int64 GetProductsCount()
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(ProductID) FROM [Catalog].[Product]",
                 CommandType.Text));
         }
@@ -120,9 +120,9 @@ namespace AdvantShop.Statistic
         /// get orders with order status @default order status@
         /// </summary>
         /// <returns>orders count</returns>
-        public static int GetLastOrdersCount()
+        public static Int64 GetLastOrdersCount()
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(OrderID) FROM [Order].[Order] WHERE [OrderStatusID] = (SELECT [OrderStatusID] FROM [Order].[OrderStatus] WHERE [IsDefault] = 1)",
                 CommandType.Text));
         }
@@ -132,9 +132,9 @@ namespace AdvantShop.Statistic
         /// get reviews count
         /// </summary>
         /// <returns></returns>
-        public static int GetReviewsCount()
+        public static Int64 GetReviewsCount()
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(ReviewID) FROM [CMS].[Review]",
                 CommandType.Text));
         }
@@ -143,9 +143,9 @@ namespace AdvantShop.Statistic
         /// get last reviews count
         /// </summary>
         /// <returns></returns>
-        public static int GetLastReviewsCount()
+        public static Int64 GetLastReviewsCount()
         {
-            return Convert.ToInt32(SQLDataAccess.ExecuteScalar(
+            return Convert.ToInt64(SQLDataAccess.ExecuteScalar(
                 "SELECT COUNT(ReviewID) FROM [CMS].[Review] WHERE [Checked] = 0",
                 CommandType.Text));
         }
